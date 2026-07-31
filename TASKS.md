@@ -30,19 +30,23 @@
 
 ## Sprint 2 — Travessia
 
-- [ ] Transição da Hero.
-- [ ] Entrada no universo DevClub.
-- [ ] Scroll controlado sem travamento.
-- [ ] Alternativa mobile.
-- [ ] Alternativa reduced motion.
+- [x] Transição híbrida da Hero.
+- [x] Entrada provisória no universo DevClub.
+- [x] ScrollTrigger curto com scroll nativo.
+- [x] Alternativas tablet e mobile.
+- [x] Fluxo linear para reduced motion.
+- [x] Lenis removido após avaliação.
+- [ ] Reduced motion validado visualmente em ambiente com a preferência ativa.
 
 ## Sprint 3 — Story Scroll
 
-- [ ] Etapas narrativas definidas.
-- [ ] Arrays e estados realmente utilizados.
-- [ ] GSAP e ScrollTrigger limpos.
-- [ ] Mobile adaptado.
-- [ ] Cleanup validado.
+- [x] Seis etapas narrativas definidas e revisadas.
+- [x] Dados tipados e integralmente consumidos.
+- [x] Timeline única e ScrollTrigger sem pin adicional.
+- [x] Painel editorial desktop e fluxo direto tablet/mobile.
+- [x] Cleanup, retorno e breakpoint validados.
+- [x] Placeholder provisório removido.
+- [ ] Story Scroll validado visualmente com reduced motion ativo.
 
 ## Sprint 4 — Conteúdo institucional
 

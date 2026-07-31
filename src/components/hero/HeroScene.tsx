@@ -1,8 +1,5 @@
 import { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-
-gsap.registerPlugin(useGSAP);
+import { gsap, useGSAP } from '../../lib/gsap';
 
 export function HeroScene() {
   const sceneRef = useRef<HTMLElement>(null);
@@ -55,6 +52,49 @@ export function HeroScene() {
         });
       });
 
+      media.add(
+        {
+          desktop: '(min-width: 1024px)',
+          tablet: '(min-width: 768px) and (max-width: 1023px)',
+          mobile: '(max-width: 767px)',
+          motionAllowed: '(prefers-reduced-motion: no-preference)',
+        },
+        (context) => {
+          if (!context.conditions?.motionAllowed) return;
+
+          const isMobile = context.conditions.mobile === true;
+          const isTablet = context.conditions.tablet === true;
+          const distanceFactor = isMobile ? 0.55 : isTablet ? 0.68 : 0.9;
+          const notebookScale = isMobile ? 1.22 : isTablet ? 1.3 : 1.55;
+          const screenScale = isMobile ? 1.03 : isTablet ? 1.04 : 1.07;
+
+          const crossing = gsap.timeline({
+            defaults: { ease: 'none' },
+            scrollTrigger: {
+              trigger: sceneRef.current,
+              start: 'top top',
+              end: () => `+=${Math.round(window.innerHeight * distanceFactor)}`,
+              pin: true,
+              scrub: isMobile ? 0.45 : isTablet ? 0.55 : 0.75,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
+            },
+          });
+
+          crossing
+            .to(
+              '[data-crossing-notebook]',
+              {
+                scale: notebookScale,
+                yPercent: isMobile ? 7 : isTablet ? 8 : 11,
+              },
+              0,
+            )
+            .to('[data-screen]', { scale: screenScale }, 0)
+            .to('[data-portal]', { autoAlpha: 1, ease: 'power1.in' }, 0.62);
+        },
+      );
+
       return () => media.revert();
     },
     { scope: sceneRef },
@@ -86,15 +126,16 @@ export function HeroScene() {
 
       <div className="hero-composition relative z-10 flex w-full max-w-6xl flex-col items-center px-5 pb-[12vh]">
         {/* Notebook */}
-        <div
-          data-notebook
-          className="hero-notebook relative z-20 w-[min(78vw,680px)]"
-        >
-          <div className="rounded-[18px] border border-white/10 bg-[#101114] p-2 shadow-2xl shadow-black">
-            <div
-              data-screen
-              className="relative aspect-16/10 overflow-hidden rounded-[11px] border border-white/5 bg-[#090d16] shadow-[0_0_35px_rgba(118,155,255,0.16),inset_0_0_35px_rgba(80,110,190,0.07)]"
-            >
+        <div data-crossing-notebook className="relative z-20">
+          <div
+            data-notebook
+            className="hero-notebook relative w-[min(78vw,680px)]"
+          >
+            <div className="rounded-[18px] border border-white/10 bg-[#101114] p-2 shadow-2xl shadow-black">
+              <div
+                data-screen
+                className="relative aspect-16/10 overflow-hidden rounded-[11px] border border-white/5 bg-[#090d16] shadow-[0_0_35px_rgba(118,155,255,0.16),inset_0_0_35px_rgba(80,110,190,0.07)]"
+              >
               <div
                 data-terminal
                 className="hero-terminal absolute inset-0 flex flex-col justify-center px-[9%] font-mono text-[clamp(10px,1.4vw,15px)] leading-7 text-white/55"
@@ -112,16 +153,17 @@ export function HeroScene() {
                 </p>
               </div>
 
-              <div
-                aria-hidden="true"
-                className="absolute left-1/2 top-2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-black"
-              />
+                <div
+                  aria-hidden="true"
+                  className="absolute left-1/2 top-2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-black"
+                />
+              </div>
             </div>
-          </div>
 
-          {/* Base do notebook */}
-          <div className="relative mx-auto h-3 w-[108%] translate-x-[-4%] rounded-b-[45%] bg-linear-to-b from-[#36383d] to-[#151619] shadow-xl">
-            <div className="absolute left-1/2 top-0 h-1 w-[16%] -translate-x-1/2 rounded-b-md bg-black/45" />
+            {/* Base do notebook */}
+            <div className="relative mx-auto h-3 w-[108%] translate-x-[-4%] rounded-b-[45%] bg-linear-to-b from-[#36383d] to-[#151619] shadow-xl">
+              <div className="absolute left-1/2 top-0 h-1 w-[16%] -translate-x-1/2 rounded-b-md bg-black/45" />
+            </div>
           </div>
         </div>
 
@@ -159,6 +201,14 @@ export function HeroScene() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.72)_100%)]"
       />
+
+      <div
+        data-portal
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-30 bg-[#090d16] opacity-0"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(104,134,218,0.14),transparent_48%)]" />
+      </div>
     </section>
   );
 }
