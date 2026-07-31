@@ -8,21 +8,25 @@
 - [x] `npm run lint` concluído.
 - [x] `npm run build` concluído.
 - [ ] Kit Codex instalado.
-- [ ] Codex confirmou leitura do `AGENTS.md`.
-- [ ] Skill `devclub-experience` detectada.
-- [ ] Auditoria inicial concluída.
-- [ ] Estado atual documentado.
+- [x] Codex confirmou leitura do `AGENTS.md`.
+- [x] Skill `devclub-experience` detectada.
+- [x] Auditoria inicial concluída.
+- [x] Estado atual documentado.
 
 ## Sprint 1 — Hero
 
-- [ ] Composição estática auditada.
-- [ ] Direção visual final definida.
-- [ ] Layout desktop.
-- [ ] Layout tablet.
-- [ ] Layout mobile.
-- [ ] Animação de entrada.
-- [ ] Reduced motion.
+- [x] Composição estática auditada.
+- [x] Direção visual atual preservada e estabilizada.
+- [x] Layout desktop.
+- [x] Layout tablet.
+- [x] Layout mobile, baixa altura e orientação horizontal.
+- [x] Animação de entrada com fallback estático.
+- [x] Reduced motion.
 - [ ] Validação de performance.
+- [x] Metadados essenciais em português.
+- [x] Resíduos comprovados do template removidos.
+- [x] Typecheck explícito configurado e aprovado.
+- [x] Lenis mantido sem uso até avaliação na Sprint 2.
 
 ## Sprint 2 — Travessia
 

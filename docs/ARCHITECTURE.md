@@ -1,8 +1,13 @@
 # ARCHITECTURE.md
 
-## Estado
+## Estado atual
 
-A arquitetura real deve ser registrada após a auditoria.
+- Vite inicia a aplicação por `src/main.tsx`.
+- `src/App.tsx` fornece o marco semântico `main` e renderiza `HeroScene`.
+- `src/components/hero/HeroScene.tsx` concentra a única seção atual, sua marcação e a timeline de entrada com GSAP.
+- `src/index.css` concentra estilos globais, Tailwind 4 e adaptações responsivas da Hero por largura, altura e orientação.
+- Textos e terminal permanecem no DOM; a animação aprimora um estado base já legível.
+- Não há ScrollTrigger, Lenis em execução, travessia, Story Scroll ou seções institucionais.
 
 ## Princípios
 
@@ -36,4 +41,4 @@ A arquitetura real deve ser registrada após a auditoria.
 
 ## Pendência
 
-Mapear arquivos reais, dependências e fluxo após a auditoria.
+Separar novas responsabilidades somente quando a travessia e as seções futuras forem implementadas, evitando abstração prematura.

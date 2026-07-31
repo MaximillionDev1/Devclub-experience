@@ -28,6 +28,32 @@
 
 **Decisão:** usar Codex no VS Code e/ou aplicativo, guiado por `AGENTS.md`, skill local, ExecPlans e documentação viva.
 
+## ADR-005 — Estado final estático e movimento progressivo
+
+**Status:** aceita.
+
+**Contexto:** conteúdo essencial da Hero começava oculto e dependia da execução da timeline GSAP.
+
+**Decisão:** manter o estado final legível no DOM/CSS e permitir que o GSAP aplique estados iniciais apenas sob `prefers-reduced-motion: no-preference`. Em reduced motion, a timeline e o cursor intermitente não são criados.
+
+**Trade-offs:** pode existir um instante do estado final antes de o JavaScript preparar a animação em conexões lentas, em troca de um fallback robusto sem JavaScript.
+
+**Arquivos relacionados:** `src/components/hero/HeroScene.tsx`, `src/index.css`.
+
+## ADR-006 — Avaliação do Lenis adiada para a travessia
+
+**Status:** aceita.
+
+**Contexto:** Lenis está instalado, mas nenhuma parte do código-fonte depende dele e a travessia ainda não existe.
+
+**Decisão:** não implementar nem remover Lenis na Sprint 1. Reavaliar sua necessidade na Sprint 2, comparando-o ao scroll nativo quanto a estabilidade, teclado, mobile e reduced motion.
+
+**Alternativas:** remover agora ou adotar suavização antes da definição da travessia.
+
+**Trade-offs:** a dependência permanece temporariamente instalada sem uso, evitando uma decisão prematura.
+
+**Arquivos relacionados:** `package.json`, `docs/plans/002-estabilizacao-hero.md`.
+
 ## Modelo
 
 ## ADR-XXX — Título

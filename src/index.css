@@ -30,6 +30,50 @@ body {
   overflow-x: hidden;
 }
 
+.hero-scene {
+  min-height: 100svh;
+  min-height: 100dvh;
+}
+
+@media (max-width: 767px) {
+  .hero-composition { padding-inline: 1rem; padding-bottom: max(14vh, 5.5rem); }
+  .hero-notebook { width: min(92vw, 34rem); }
+  .hero-desk { width: 112vw; height: 3rem; }
+  .hero-light { bottom: 13vh; width: 110vw; }
+  .hero-terminal { font-size: clamp(0.625rem, 3.2vw, 0.8125rem); line-height: 1.6; }
+  .hero-message { bottom: max(1.25rem, env(safe-area-inset-bottom)); letter-spacing: 0.22em; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-composition { padding-bottom: 13vh; }
+  .hero-notebook { width: min(76vw, 39rem); }
+  .hero-desk { width: min(104vw, 56rem); }
+}
+
+@media (max-height: 620px) {
+  .hero-composition { padding-bottom: 4.5rem; }
+  .hero-notebook { width: min(68vw, 32rem); }
+  .hero-desk { height: 2.5rem; }
+  .hero-light { bottom: 3.5rem; height: 75vh; }
+  .hero-message { bottom: 1rem; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-composition { padding-bottom: 2.75rem; }
+  .hero-notebook { width: min(55vw, 25rem); }
+  .hero-desk { width: min(88vw, 42rem); height: 2rem; }
+  .hero-message { bottom: 0.65rem; font-size: 0.5625rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 button,
 a {
   font: inherit;

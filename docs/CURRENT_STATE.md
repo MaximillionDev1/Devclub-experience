@@ -2,45 +2,46 @@
 
 ## Status
 
-Projeto executa localmente e passou nos comandos iniciais.
+Sprint 1 de estabilização da base e da Hero implementada. A composição permanece funcional como conteúdo estático e a animação é um aprimoramento opcional.
 
 ## Validações confirmadas
 
 - `npm install`: aprovado.
 - `npm run dev`: aprovado.
 - `npm run lint`: aprovado.
+- `npm run typecheck`: aprovado.
 - `npm run build`: aprovado.
 
 ## Fase atual
 
-Instalação do kit definitivo para Codex e preparação da auditoria inicial.
+Sprint 1 — estabilização da Hero concluída em código; validação visual em navegador e performance permanecem pendentes.
 
 ## Concluído
 
-- conceito criativo;
-- documentação inicial;
-- fundação técnica existente;
-- extensão Codex no VS Code;
-- aplicativo Codex/ChatGPT disponível;
-- comandos iniciais aprovados.
+- auditoria estrutural inicial;
+- estado final da Hero legível sem timeline;
+- `prefers-reduced-motion` sem timeline de entrada ou cursor infinito;
+- composições adaptadas para desktop, tablet, mobile, baixa altura e paisagem móvel;
+- metadados essenciais em `pt-BR`;
+- resíduos não utilizados do template removidos;
+- script explícito de typecheck;
+- Lenis confirmado sem uso e adiado para a travessia.
 
 ## Próxima etapa
 
-1. Copiar o kit para a raiz.
-2. Reiniciar ou abrir uma nova sessão do Codex.
-3. Confirmar leitura do `AGENTS.md`.
-4. Confirmar a skill com `/skills` ou `$devclub-experience`.
-5. Executar a auditoria inicial sem alterar arquivos.
-6. Criar `docs/plans/001-auditoria-inicial.md`.
-7. Atualizar `TASKS.md` e este documento.
+1. Executar revisão visual real em navegador nas larguras e alturas-alvo, incluindo reduced motion.
+2. Medir performance da Hero em desktop e aparelho móvel.
+3. Planejar a Sprint 2 de travessia e então reavaliar ScrollTrigger e Lenis.
 
 ## Problemas conhecidos
 
-Nenhum erro técnico confirmado até o momento.
+- A Hero ainda não possui CTA ou travessia; isso pertence às próximas sprints.
+- Não houve validação visual em navegador nesta etapa.
+- A performance não foi perfilada em dispositivo real.
 
 ## Pendências
 
-- auditoria do código;
 - validação visual da Hero;
+- validação de performance;
 - definição dos assets finais;
 - integração de ferramentas externas.
