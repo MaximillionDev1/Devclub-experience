@@ -265,3 +265,31 @@
 **Trade-offs:** mobile não recebe a fotografia, mas preserva composição, legibilidade, transferência mínima e robustez. Os 24 derivados permanecem no bundle, enquanto o navegador solicita somente o formato e a largura selecionados.
 
 **Arquivos relacionados:** `src/components/hero/HeroScene.tsx`, `src/components/hero/hero-plates.ts`, `src/index.css`, `creative/outputs/optimized/hero/`, `docs/plans/007-hero-plates-integration.md`.
+
+## ADR-021 — Ecossistema Full Stack e relatos editoriais sem assets remotos
+
+**Status:** aceita e executada.
+
+**Contexto:** a Sprint 4 precisava tornar a jornada abstrata concreta sem representar tecnologias como cursos independentes, copiar a referência orbital ou introduzir renderização pesada. Os relatos ainda não possuem autorização para retratos ou fonte factual pública.
+
+**Decisão:** representar nove pilares conectados a uma única formação Full Stack com DOM, CSS e ícones locais de `lucide-react`. Desktop/tablet usam três órbitas lentas; mobile usa trilha horizontal. Histórias usam sete relatos explicitamente fictícios, monogramas e carrossel por índice modular. Empresas e Tutores recebem apenas destinos de navegação em uma continuação neutra.
+
+**Alternativas:** Three.js/canvas para a esfera; nove cards de cursos; logos e avatares remotos; mutação de array no carrossel; manter links da Hero apontando para `#jornada`.
+
+**Trade-offs:** o diagrama privilegia clareza editorial em vez de profundidade tridimensional, e os monogramas são provisórios. Em troca, a solução mantém baixo custo, conteúdo no DOM, navegação por teclado, reduced motion completo e nenhum request remoto adicional.
+
+**Arquivos relacionados:** `src/components/formations/`, `src/components/students/`, `src/components/ui/`, `src/index.css`, `docs/CONTENT-SOURCES.md`, `docs/plans/008-formations-and-students.md`.
+
+## ADR-022 — Artefato editorial antes do vínculo com o vídeo
+
+**Status:** aceita e executada.
+
+**Contexto:** a reflexão oficial precisava conectar Formações e Alunos sem interromper o ritmo com um grande bloco de vídeo nem transformar a página em uma história sobre o fundador. Um poster com linguagem de thumbnail faria o visitante perceber primeiro a plataforma externa, não a DevClub Experience.
+
+**Decisão:** criar uma pausa editorial estática com statement e três princípios. O quadro visual é um artefato DOM/CSS do mesmo universo da Hero — mesa, luz azul contida, calor lateral e marcações de decisão — sem affordance de player. A relação com o vídeo aparece somente depois, em link externo para a URL oficial.
+
+**Alternativas:** thumbnail oficial; iframe sob consentimento; modal com embed tardio; card clicável com botão de play.
+
+**Trade-offs:** o vídeo não toca dentro da página, mas o fluxo fica mais leve, acessível e coerente. Nenhum recurso do YouTube é carregado antes da decisão explícita de sair para o vídeo.
+
+**Arquivos relacionados:** `src/components/mindset/MindsetSection.tsx`, `src/App.tsx`, `src/index.css`, `docs/plans/009-mindset-founder-story.md`.

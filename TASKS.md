@@ -64,11 +64,14 @@
 ## Sprint 4 — Conteúdo institucional
 
 - [ ] Quem somos.
-- [ ] Formações.
-- [ ] Alunos e histórias.
+- [x] Formações — ecossistema Full Stack com nove pilares, detalhe compartilhado e composição mobile.
+- [x] Alunos e histórias — sete relatos editoriais fictícios em carrossel acessível.
+- [x] Mentalidade — pausa editorial entre Formações e Alunos com reflexão oficial complementar.
 - [ ] Empresas.
 - [ ] Tutores.
 - [ ] CTA final.
+- [x] Navegação da Hero conectada a Formações, Alunos e destinos futuros neutros.
+- [x] Reduced motion implementado para órbitas e transições do carrossel.
 
 ## Sprint 5 — Assets
 

@@ -3,7 +3,7 @@
 ## Estado atual
 
 - Vite inicia a aplicação por `src/main.tsx`.
-- `src/App.tsx` fornece o marco semântico `main` e organiza `HeroScene` seguida por `JourneySection`.
+- `src/App.tsx` fornece o marco semântico `main` e organiza Hero, Story Scroll, Formações, Mentalidade, Alunos e uma continuação neutra.
 - `src/components/hero/HeroScene.tsx` concentra a cena, a timeline de entrada e a travessia curta com GSAP/ScrollTrigger.
 - `src/components/hero/hero-transcript.ts` é a fonte tipada única das linhas e dos níveis de luz da Parte A.
 - `src/components/journey/JourneySection.tsx` controla a composição editorial e uma timeline desktop.
@@ -16,6 +16,11 @@
 - A Hero definitiva é integralmente CSS/DOM; não há imagem HERO-02, renderização condicional ou breakpoint de mídia fotográfica no bundle de produção.
 - ScrollTrigger usa scroll nativo, pin curto e variantes desktop/tablet/mobile; Lenis foi removido.
 - O Story Scroll está implementado; ainda não há seções institucionais definitivas.
+- `src/components/formations/formation-data.ts` é a fonte tipada dos nove pilares da única formação Full Stack.
+- `FormationsSection` compõe o cabeçalho editorial e `devclub-orbit-ecosystem.tsx` concentra seleção, órbitas CSS, trilha mobile e detalhe compartilhado.
+- `src/components/students/student-stories.ts` contém sete relatos fictícios estáveis; `StudentsSection` e `stagger-testimonials.tsx` separam conteúdo, seção e comportamento do carrossel.
+- `src/components/ui/` é o diretório único de componentes reutilizáveis compostos; não há shadcn nem alias novo.
+- `src/components/mindset/MindsetSection.tsx` contém statement, três princípios, artefato cinematográfico DOM/CSS e link externo oficial; não cria player ou estado de vídeo.
 
 ## Princípios
 
@@ -58,7 +63,15 @@ O Story Scroll não adiciona pin: CSS sticky mantém o painel desktop em context
 
 ## Pendência
 
-Adicionar as futuras seções institucionais como responsabilidades próprias, preservando a jornada como narrativa de transição e evitando abstrações genéricas de seção.
+Adicionar Quem Somos, Empresas, Tutores e CTA como responsabilidades próprias, preservando a jornada como narrativa de transição e evitando abstrações genéricas de seção.
+
+## Conteúdo institucional da Sprint 4
+
+O ecossistema usa DOM/CSS e `lucide-react`; não existe canvas, Three.js, request de logo ou loop JavaScript. A seleção mantém somente um `activeId`. No mobile, os mesmos dados alimentam uma trilha horizontal, sem reduzir a órbita desktop até ficar ilegível.
+
+O carrossel mantém `activeIndex`, calcula vizinhos com índice modular e renderiza no máximo cinco posições visuais. IDs de conteúdo são as chaves; não há mutação do array, duplicação persistente ou `Math.random()`.
+
+A seção Mentalidade é estruturalmente estática. Seu frame é um `figure` não interativo; a relação com YouTube existe apenas no link explícito e não adiciona recursos externos ao carregamento da página.
 
 ## Hero Pack em produção
 

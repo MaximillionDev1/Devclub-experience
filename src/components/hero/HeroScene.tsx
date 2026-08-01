@@ -3,7 +3,12 @@ import { gsap, ScrollTrigger, useGSAP } from '../../lib/gsap';
 import { heroPlates } from './hero-plates';
 import { heroResponseLines, heroTranscript } from './hero-transcript';
 
-const navigationItems = ['Formações', 'Alunos', 'Empresas', 'Tutores'] as const;
+const navigationItems = [
+  { label: 'Formações', href: '#formacoes' },
+  { label: 'Alunos', href: '#alunos' },
+  { label: 'Empresas', href: '#empresas' },
+  { label: 'Tutores', href: '#tutores' },
+] as const;
 
 export function HeroScene() {
   const sceneRef = useRef<HTMLElement>(null);
@@ -197,9 +202,9 @@ export function HeroScene() {
         <nav aria-label="Navegação principal">
           <ul className="hero-navigation">
             {navigationItems.map((item) => (
-              <li key={item}>
-                <a href="#jornada">
-                  {item}<span aria-hidden="true" />
+              <li key={item.href}>
+                <a href={item.href}>
+                  {item.label}<span aria-hidden="true" />
                 </a>
               </li>
             ))}

@@ -62,6 +62,29 @@
 6. Tablet, mobile e reduced motion mantêm todos os artigos em sequência natural e ocultam o painel complementar.
 7. `invalidateOnRefresh` recalcula a geometria; refresh intermediário preserva conteúdo/scroll e posiciona o scrub no progresso matemático correspondente.
 
+## Formações
+
+1. Três rotores CSS movem somente `transform`, com 46, 62 e 78 segundos e direção alternada no nível intermediário.
+2. Cada nó aplica contra-rotação, mantendo ícone e rótulo legíveis durante a órbita.
+3. Hover ou foco dentro do ecossistema pausa rotores e contra-rotação.
+4. Não existe timeline, interval, requestAnimationFrame ou state atualizado por frame.
+5. Abaixo de 901 px, o diagrama é substituído por trilha horizontal estática e selecionável.
+6. Em reduced motion, todas as animações orbitais são removidas e seleção/detalhe permanecem funcionais.
+
+## Histórias de alunos
+
+1. Mudanças de índice interpolam somente transform, opacity e borda dos cinco slots visuais.
+2. Desktop preserva centro, dois vizinhos principais e duas camadas remotas; tablet reduz a abertura; mobile mantém um card e previews praticamente ausentes.
+3. Reduced motion remove as transições, sem retirar conteúdo ou controles.
+4. A interação não cria autoplay, intervalo, gesto obrigatório ou estado por frame.
+
+## Mentalidade
+
+1. A pausa editorial não cria timeline, ScrollTrigger, pin, autoplay ou animação contínua.
+2. O artefato é um quadro completo e estático construído com DOM/CSS.
+3. Apenas o link possui microtransição de cor e linha; reduced motion remove essa transição.
+4. Conteúdo, princípios e ação permanecem idênticos com ou sem movimento.
+
 ## Story Scroll
 
 Cada etapa deve produzir mudança visual real.
