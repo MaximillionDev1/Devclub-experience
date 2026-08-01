@@ -321,3 +321,17 @@
 **Trade-offs:** a composição demanda disclosure documental e não constitui prova factual de parceria. Em troca, comunica variedade de destinos e preparo para colaboração sem afirmações indevidas ou requests externos.
 
 **Arquivos relacionados:** `src/components/companies/company-data.ts`, `src/components/companies/CompaniesSection.tsx`, `src/App.tsx`, `src/index.css`, `docs/plans/011-empresas.md`.
+
+## ADR-025 — Tutores como conversa de experiência, não equipe
+
+**Status:** aceita e executada.
+
+**Contexto:** a camada humana da jornada precisava comunicar orientação e feedback sem dados reais confirmados, sem retratos e sem repetir uma grade corporativa de perfis.
+
+**Decisão:** criar cinco perfis fictícios em uma sequência de vozes que atualiza um único painel compartilhado. Botões com `aria-pressed` oferecem seleção por mouse, toque e teclado. Monogramas, linhas e anotações de revisão constroem a presença visual sem imagens.
+
+**Alternativas:** cards idênticos; retratos gerados; tabs completas; biografias extensas; seção estática sem seleção.
+
+**Trade-offs:** os perfis não constituem prova factual de equipe e exigem disclosure documental. Em troca, a seção comunica variedade de contexto humano com baixo custo, conteúdo integral no DOM e interação acessível.
+
+**Arquivos relacionados:** `src/components/tutors/tutor-data.ts`, `src/components/tutors/TutorsSection.tsx`, `src/App.tsx`, `src/index.css`, `docs/plans/012-tutores.md`.

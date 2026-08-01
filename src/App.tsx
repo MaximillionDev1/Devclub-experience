@@ -5,6 +5,7 @@ import { JourneySection } from './components/journey/JourneySection';
 import { FormationsSection } from './components/formations/FormationsSection';
 import { MindsetSection } from './components/mindset/MindsetSection';
 import { StudentsSection } from './components/students/StudentsSection';
+import { TutorsSection } from './components/tutors/TutorsSection';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       <AboutSection />
       <StudentsSection />
       <CompaniesSection />
-      <section id="tutores" className="institutional-continuation" aria-label="Continuação da experiência">
+      <TutorsSection />
+      <section className="institutional-continuation" aria-label="Continuação da experiência">
         <p>Novos caminhos continuam daqui.</p>
       </section>
     </main>

@@ -2,7 +2,7 @@
 
 ## Status
 
-Sprint 4 em andamento: após Hero, travessia e Story Scroll, a página apresenta Formação, Mentalidade, Quem Somos, histórias de alunos e Empresas.
+Sprint 4 em andamento: após Hero, travessia e Story Scroll, a página apresenta Formação, Mentalidade, Quem Somos, histórias de alunos, Empresas e Tutores.
 
 ## Validações confirmadas
 
@@ -15,7 +15,7 @@ Sprint 4 em andamento: após Hero, travessia e Story Scroll, a página apresenta
 
 ## Fase atual
 
-Sprint 4 — Formações, Mentalidade, Quem Somos, Alunos e Empresas implementados. O ecossistema comunica nove pilares de uma única jornada Full Stack; Mentalidade estabelece a decisão; Quem Somos apresenta o ambiente; Alunos mostra transformações; Empresas representa destinos profissionais possíveis sem prometer contratação.
+Sprint 4 — Formações, Mentalidade, Quem Somos, Alunos, Empresas e Tutores implementados. O ecossistema comunica nove pilares de uma única jornada Full Stack; Mentalidade estabelece a decisão; Quem Somos apresenta o ambiente; Alunos mostra transformações; Empresas representa destinos profissionais possíveis; Tutores acrescenta a camada humana de contexto e revisão.
 
 A seção Mentalidade usa um artefato DOM/CSS do mesmo universo da Hero, sem thumbnail, player, retrato, iframe ou recurso remoto. O vídeo oficial aparece somente como link externo secundário após o conteúdo completo no DOM.
 
@@ -28,6 +28,10 @@ Quem Somos foi revalidada com reload individual na mesma matriz de dez viewports
 Empresas usa oito identidades fictícias em um campo editorial ao redor de “Talento em movimento”. Seleção, foco e hover atualizam um único detalhe de setor; mobile usa grade compacta com setores visíveis. As marcas são conteúdo conceitual do concurso, não parceiros confirmados.
 
 A matriz de dez viewports foi repetida com reload individual. Não houve overflow, mídia remota, novo pin ou erro da aplicação; a âncora da Hero chegou ao topo exato de `#empresas`.
+
+Tutores usa cinco perfis fictícios e um único painel compartilhado. A seleção por botões consome nome, iniciais, especialidade, statement, tipo de apoio e accent; desktop organiza as vozes em sequência vertical e mobile usa seletor horizontal. Não há retratos, perfis reais ou promessa de disponibilidade individual.
+
+A matriz solicitada foi repetida para Tutores em 1440×900, 1366×768, 1280×720, 1024×768, 768×1024, 430×932, 390×844, 360×640, 844×390 e 1280×600. Os cinco controles mantêm targets de 88–92 px, o perfil permanece legível, não há overflow, recurso remoto ou novo pin. Âncora, seleção repetida, Tab e reverse scroll foram confirmados.
 
 Em paralelo, a geração de HERO-02 foi encerrada: v01 está arquivada como referência e v02 está rejeitada. A integração experimental desktop foi rejeitada e removida. A Hero definitiva voltou integralmente à composição CSS/DOM.
 
@@ -73,10 +77,9 @@ O blueprint cinematográfico em `docs/plans/006-hero-cinematic-blueprint.md` foi
 
 ## Próxima etapa
 
-1. Planejar Tutores como seção própria; o destino atual permanece uma continuação neutra.
-2. Definir o CTA final depois que o conteúdo institucional estiver completo.
-3. Validar visualmente a experiência completa com `prefers-reduced-motion: reduce` efetivamente ativo.
-4. Medir LCP, CLS e bytes em ambiente de produção e dispositivo real.
+1. Definir o CTA final agora que o conteúdo institucional está completo.
+2. Validar visualmente a experiência completa com `prefers-reduced-motion: reduce` efetivamente ativo.
+3. Medir LCP, CLS e bytes em ambiente de produção e dispositivo real.
 
 ## Problemas conhecidos
 
@@ -86,7 +89,7 @@ O blueprint cinematográfico em `docs/plans/006-hero-cinematic-blueprint.md` foi
 - HERO-FINAL-01 não foi gerado: a submissão única com referência real foi recusada por exigir plano Basic ou superior; nenhum crédito foi consumido e não houve retry.
 - A instância de navegador usada reportou `prefers-reduced-motion: false` e não expôs emulação de mídia.
 - A performance não foi perfilada em dispositivo real.
-- Ainda não existem Tutores, CTA final ou footer; Formações, Mentalidade, Quem Somos, Alunos e Empresas já estão implementados.
+- Ainda não existem CTA final ou footer; Formações, Mentalidade, Quem Somos, Alunos, Empresas e Tutores já estão implementados.
 - HERO-02-v01 contém tela gerada e pequeno pseudo-branding no bezel; permanece somente como referência histórica.
 - HERO-02-v02 altera a cena e introduz uma pessoa; está rejeitada e não deve ser integrada nem usada como referência.
 - o build experimental entregava HERO-02-v01 como PNG de 2.688,17 kB; a referência foi removida do código de produção;

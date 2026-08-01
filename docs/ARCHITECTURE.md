@@ -3,7 +3,7 @@
 ## Estado atual
 
 - Vite inicia a aplicação por `src/main.tsx`.
-- `src/App.tsx` fornece o marco semântico `main` e organiza Hero, Story Scroll, Formações, Mentalidade, Quem Somos, Alunos, Empresas e uma continuação neutra para Tutores.
+- `src/App.tsx` fornece o marco semântico `main` e organiza Hero, Story Scroll, Formações, Mentalidade, Quem Somos, Alunos, Empresas, Tutores e uma continuação neutra para o CTA.
 - `src/components/hero/HeroScene.tsx` concentra a cena, a timeline de entrada e a travessia curta com GSAP/ScrollTrigger.
 - `src/components/hero/hero-transcript.ts` é a fonte tipada única das linhas e dos níveis de luz da Parte A.
 - `src/components/journey/JourneySection.tsx` controla a composição editorial e uma timeline desktop.
@@ -23,6 +23,7 @@
 - `src/components/mindset/MindsetSection.tsx` contém statement, três princípios, artefato cinematográfico DOM/CSS e link externo oficial; não cria player ou estado de vídeo.
 - `src/components/about/AboutSection.tsx` apresenta o ambiente institucional por meio de contexto, quatro princípios e uma progressão visual desktop com GSAP/ScrollTrigger sem pin.
 - `src/components/companies/company-data.ts` contém oito marcas fictícias tipadas; `CompaniesSection.tsx` controla o campo editorial, seleção compartilhada e reveal desktop sem pin.
+- `src/components/tutors/tutor-data.ts` contém cinco perfis fictícios tipados; `TutorsSection.tsx` controla o seletor de vozes, perfil compartilhado e entrada desktop sem pin.
 
 ## Princípios
 
@@ -65,7 +66,7 @@ O Story Scroll não adiciona pin: CSS sticky mantém o painel desktop em context
 
 ## Pendência
 
-Adicionar Tutores e CTA como responsabilidades próprias, preservando a jornada como narrativa de transição e evitando abstrações genéricas de seção.
+Adicionar o CTA como responsabilidade própria, preservando a jornada como narrativa de transição e evitando abstrações genéricas de seção.
 
 ## Conteúdo institucional da Sprint 4
 
@@ -78,6 +79,8 @@ A seção Mentalidade é estruturalmente estática. Seu frame é um `figure` nã
 Quem Somos usa dados locais tipados no próprio componente porque seus quatro princípios são exclusivos da seção. Desktop combina statement sticky e conteúdo em fluxo; uma única timeline modifica apenas opacity e transform do reveal, do eixo e dos pontos. Abaixo de 901 px e em reduced motion, toda a composição permanece no estado final sem timeline.
 
 Empresas usa `activeId` para selecionar uma das oito marcas e consumir nome, iniciais, setor e accent. Desktop posiciona marcas em um campo controlado; mobile troca por grid. Uma timeline restrita a desktop revela copy, linhas e marcas por opacity e transform, sem loop ou pin. Todos os nomes permanecem no DOM.
+
+Tutores usa `activeId` para selecionar uma de cinco vozes e renderizar um único perfil compartilhado. Botões com `aria-pressed` preservam interação nativa; desktop usa sequência vertical conectada por uma linha de conversa e mobile usa lista horizontal. Uma timeline restrita a desktop revela copy, eixo e vozes por opacity e transform, sem loop ou pin.
 
 ## Hero Pack em produção
 

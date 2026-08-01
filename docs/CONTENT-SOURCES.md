@@ -68,3 +68,15 @@ As oito identidades exibidas em `src/components/companies/company-data.ts` são 
 - Prisma Data.
 
 Nomes, iniciais, setores e geometrias não representam parceiros de contratação confirmados do DevClub. A composição demonstra a função institucional da seção — conectar preparo e ambientes profissionais possíveis — sem alegar parceria, vaga, contratação ou resultado garantido.
+
+## Tutores
+
+Os cinco nomes e perfis em `src/components/tutors/tutor-data.ts` são fictícios e foram criados exclusivamente para a apresentação do concurso:
+
+- Marina Costa;
+- Caio Mendes;
+- Helena Ramos;
+- Lucas Freire;
+- Bianca Luz.
+
+Eles não representam profissionais confirmados, integrantes ou colaboradores documentados do DevClub. As especialidades refletem o ecossistema educacional pretendido — interfaces, APIs, dados, carreira e inteligência artificial — e não afirmam disponibilidade, modalidade ou volume específico de mentoria.

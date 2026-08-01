@@ -68,7 +68,7 @@
 - [x] Alunos e histórias — sete relatos editoriais fictícios em carrossel acessível.
 - [x] Mentalidade — pausa editorial entre Formações e Alunos com reflexão oficial complementar.
 - [x] Empresas — campo editorial de destinos conceituais, oito marcas fictícias e detalhe acessível.
-- [ ] Tutores.
+- [x] Tutores — conversa editorial com cinco perfis fictícios e seleção acessível.
 - [ ] CTA final.
 - [x] Navegação da Hero conectada a Formações, Alunos e destinos futuros neutros.
 - [x] Reduced motion implementado para órbitas e transições do carrossel.

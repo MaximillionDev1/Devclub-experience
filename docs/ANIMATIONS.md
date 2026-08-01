@@ -103,6 +103,15 @@
 5. Tablet, mobile e reduced motion mostram imediatamente o campo completo ou a grade compacta.
 6. Não há marquee, loop, flutuação, rotação, parallax ou cursor magnético.
 
+## Tutores
+
+1. Uma timeline desktop opera em `min-width: 901px` e `prefers-reduced-motion: no-preference`.
+2. O trigger é a própria seção, de `top 76%` a `bottom 64%`, com scrub 0,45 e sem pin.
+3. Copy e perfil entram por opacity e deslocamento vertical; a linha de conversa cresce e as cinco vozes aparecem em sequência.
+4. A seleção do perfil permanece independente da timeline e usa somente estado React por interação, nunca por frame.
+5. Tablet, mobile e reduced motion mostram imediatamente o conteúdo completo e o seletor funcional.
+6. Não há animação contínua, retrato flutuante, parallax ou novo `pin-spacer`.
+
 ## Story Scroll
 
 Cada etapa deve produzir mudança visual real.
