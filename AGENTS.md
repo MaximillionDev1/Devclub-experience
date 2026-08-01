@@ -174,3 +174,15 @@ Informe:
 5. problemas conhecidos;
 6. pendências;
 7. próximo passo.
+
+## Produção visual
+
+Para qualquer geração ou integração de asset:
+
+1. leia `creative/README.md`;
+2. leia a ordem de produção relacionada;
+3. verifique `creative/ASSET-DEPENDENCY-TREE.md`;
+4. aplique `creative/QUALITY-GATE.md`;
+5. não gere nenhum asset sem ordem de produção;
+6. não gere múltiplas variações sem aprovação;
+7. registre prompts e resultados em `creative/09-ASSET-LIBRARY.md`.

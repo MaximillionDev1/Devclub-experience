@@ -1,97 +1,143 @@
-import { useRef } from 'react';
-import { gsap, useGSAP } from '../../lib/gsap';
+import { useEffect, useRef, useState } from 'react';
+import { gsap, ScrollTrigger, useGSAP } from '../../lib/gsap';
+import { heroPlates } from './hero-plates';
+import { heroResponseLines, heroTranscript } from './hero-transcript';
+
+const navigationItems = ['Formações', 'Alunos', 'Empresas', 'Tutores'] as const;
 
 export function HeroScene() {
   const sceneRef = useRef<HTMLElement>(null);
+  const [loadProgressivePlates, setLoadProgressivePlates] = useState(false);
+
+  useEffect(() => {
+    const loadTimer = window.setTimeout(() => setLoadProgressivePlates(true), 320);
+    let refreshFrame = 0;
+
+    const refreshHero = () => {
+      window.cancelAnimationFrame(refreshFrame);
+      refreshFrame = window.requestAnimationFrame(() => ScrollTrigger.refresh());
+    };
+
+    window.addEventListener('resize', refreshHero);
+
+    return () => {
+      window.clearTimeout(loadTimer);
+      window.removeEventListener('resize', refreshHero);
+      window.cancelAnimationFrame(refreshFrame);
+    };
+  }, []);
 
   useGSAP(
     () => {
       const media = gsap.matchMedia();
 
       media.add('(prefers-reduced-motion: no-preference)', () => {
-        gsap.set('[data-scene]', { autoAlpha: 0 });
-        gsap.set('[data-desk]', { autoAlpha: 0, y: 50 });
-        gsap.set('[data-notebook]', { autoAlpha: 0, scale: 0.96, y: 24 });
-        gsap.set('[data-screen]', { backgroundColor: '#020203', boxShadow: 'none' });
-        gsap.set('[data-light]', { autoAlpha: 0, scale: 0.75 });
-        gsap.set('[data-terminal], [data-cursor]', { autoAlpha: 0 });
-        gsap.set('[data-scroll-hint]', { autoAlpha: 0, y: 12 });
+        gsap.set('[data-hero-interface]', { autoAlpha: 0, y: -8 });
+        gsap.set('[data-hero-copy]', { autoAlpha: 0, y: 12 });
+        gsap.set('[data-start-guide]', { autoAlpha: 0, x: -8 });
+        gsap.set('[data-scroll-hint]', { autoAlpha: 0, y: 8 });
+        gsap.set('[data-terminal], [data-terminal-fallback]', { autoAlpha: 0 });
 
-        const timeline = gsap.timeline({ defaults: { ease: 'power2.out' } });
-
-        timeline
-          .to('[data-scene]', { autoAlpha: 1, duration: 1.4 })
-          .to('[data-desk]', { autoAlpha: 1, y: 0, duration: 1.5 }, 0.3)
-          .to(
-            '[data-notebook]',
-            { autoAlpha: 1, scale: 1, y: 0, duration: 1.3 },
-            0.65,
-          )
-          .to(
-            '[data-screen]',
-            {
-              backgroundColor: '#090d16',
-              boxShadow:
-                '0 0 35px rgba(118, 155, 255, 0.16), inset 0 0 35px rgba(80, 110, 190, 0.07)',
-              duration: 1,
-            },
-            2.1,
-          )
-          .to('[data-light]', { autoAlpha: 1, scale: 1, duration: 1.5 }, 2.1)
-          .to('[data-terminal]', { autoAlpha: 1, duration: 0.7 }, 2.6)
-          .to('[data-cursor]', { autoAlpha: 1, duration: 0.2 }, 3)
-          .to('[data-scroll-hint]', { autoAlpha: 1, y: 0, duration: 0.8 });
-
-        gsap.to('[data-cursor]', {
-          autoAlpha: 0,
-          repeat: -1,
-          yoyo: true,
-          duration: 0.55,
-          ease: 'none',
-          delay: 3.2,
-        });
+        const entrance = gsap.timeline({ defaults: { ease: 'power2.out' } });
+        entrance
+          .to('[data-hero-interface]', { autoAlpha: 1, y: 0, duration: 0.9 })
+          .to('[data-hero-copy]', { autoAlpha: 1, y: 0, duration: 1 }, 0.25)
+          .to('[data-start-guide]', { autoAlpha: 1, x: 0, duration: 0.8 }, 0.45)
+          .to('[data-terminal], [data-terminal-fallback]', { autoAlpha: 1, duration: 0.65 }, 0.55)
+          .to('[data-scroll-hint]', { autoAlpha: 1, y: 0, duration: 0.7 }, 0.65);
       });
 
       media.add(
         {
+          plates: '(min-width: 900px) and (min-height: 501px)',
           desktop: '(min-width: 1024px)',
           tablet: '(min-width: 768px) and (max-width: 1023px)',
-          mobile: '(max-width: 767px)',
+          compact: '(max-width: 767px), (max-height: 500px)',
           motionAllowed: '(prefers-reduced-motion: no-preference)',
         },
         (context) => {
           if (!context.conditions?.motionAllowed) return;
 
-          const isMobile = context.conditions.mobile === true;
+          const hasPlates = context.conditions.plates === true;
           const isTablet = context.conditions.tablet === true;
-          const distanceFactor = isMobile ? 0.55 : isTablet ? 0.68 : 0.9;
-          const notebookScale = isMobile ? 1.22 : isTablet ? 1.3 : 1.55;
-          const screenScale = isMobile ? 1.03 : isTablet ? 1.04 : 1.07;
+          const isCompact = context.conditions.compact === true;
+          const distanceFactor = isCompact ? 0.7 : isTablet ? 1 : 1.35;
+          const cameraScale = isCompact ? 1.04 : isTablet ? 1.06 : 1.1;
+          const messagePositions = isCompact
+            ? [0.08, 0.18, 0.28, 0.39, 0.52]
+            : [0.1, 0.2, 0.3, 0.41, 0.53];
+          const responseLines = gsap.utils.toArray<HTMLElement>(
+            hasPlates
+              ? '[data-terminal] [data-terminal-response]'
+              : '[data-terminal-fallback] [data-terminal-response]',
+          );
 
-          const crossing = gsap.timeline({
+          gsap.set(responseLines, { autoAlpha: 0, y: isCompact ? 3 : 5 });
+          gsap.set('[data-plate="awakening"], [data-plate="signal"]', {
+            autoAlpha: 0,
+          });
+          gsap.set('[data-response-light], [data-wall-light]', { autoAlpha: 0 });
+
+          const cinematic = gsap.timeline({
             defaults: { ease: 'none' },
             scrollTrigger: {
               trigger: sceneRef.current,
               start: 'top top',
               end: () => `+=${Math.round(window.innerHeight * distanceFactor)}`,
               pin: true,
-              scrub: isMobile ? 0.45 : isTablet ? 0.55 : 0.75,
+              scrub: isCompact ? 0.35 : isTablet ? 0.55 : 0.7,
               anticipatePin: 1,
               invalidateOnRefresh: true,
             },
           });
 
-          crossing
+          cinematic.to({}, { duration: 1 });
+
+          if (hasPlates) {
+            cinematic
+              .to('[data-plate="awakening"]', { autoAlpha: 1, duration: 0.12 }, 0.08)
+              .to('[data-plate="silence"]', { autoAlpha: 0, duration: 0.12 }, 0.08)
+              .to('[data-plate="signal"]', { autoAlpha: 1, duration: 0.16 }, 0.38)
+              .to('[data-plate="awakening"]', { autoAlpha: 0, duration: 0.16 }, 0.38);
+          }
+
+          heroResponseLines.forEach((line, index) => {
+            const position = messagePositions[index];
+            cinematic
+              .to(
+                responseLines[index],
+                { autoAlpha: 1, y: 0, duration: isCompact ? 0.045 : 0.055 },
+                position,
+              )
+              .to(
+                '[data-response-light]',
+                {
+                  autoAlpha: line.light * (isCompact ? 0.45 : 0.7),
+                  duration: 0.07,
+                },
+                position,
+              )
+              .to(
+                '[data-wall-light]',
+                {
+                  autoAlpha: line.light * (isCompact ? 0.35 : 0.58),
+                  duration: 0.07,
+                },
+                position,
+              );
+          });
+
+          cinematic
+            .to('[data-start-guide]', { autoAlpha: 0, x: -6, duration: 0.08 }, 0.08)
             .to(
-              '[data-crossing-notebook]',
-              {
-                scale: notebookScale,
-                yPercent: isMobile ? 7 : isTablet ? 8 : 11,
-              },
-              0,
+              '[data-shared-camera]',
+              { scale: cameraScale, yPercent: isCompact ? 1 : 2, duration: 0.2, ease: 'power1.inOut' },
+              0.68,
             )
-            .to('[data-screen]', { scale: screenScale }, 0)
-            .to('[data-portal]', { autoAlpha: 1, ease: 'power1.in' }, 0.62);
+            .to('[data-hero-copy]', { autoAlpha: 0.35, duration: 0.16 }, 0.72)
+            .to('[data-atmosphere-vignette]', { autoAlpha: 0.28, duration: 0.18 }, 0.72)
+            .to('[data-scroll-hint]', { autoAlpha: 0, y: 6, duration: 0.1 }, 0.72)
+            .to('[data-portal]', { autoAlpha: 1, duration: 0.12, ease: 'power1.in' }, 0.88);
         },
       );
 
@@ -102,113 +148,128 @@ export function HeroScene() {
 
   return (
     <section
+      id="top"
       ref={sceneRef}
-      data-scene
-      className="hero-scene relative isolate flex min-h-screen items-end justify-center overflow-hidden bg-[#050505]"
+      className="hero-scene relative isolate min-h-screen overflow-hidden bg-[#050607]"
       aria-labelledby="hero-title"
     >
-      <h1 id="hero-title" className="sr-only">
-        Toda transformação começa com uma decisão
-      </h1>
-
-      {/* Luz ambiente superior */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-[55vh] bg-[radial-gradient(ellipse_at_top,rgba(30,38,62,0.16),transparent_68%)]"
-      />
-
-      {/* Luz emitida pelo notebook */}
-      <div
-        data-light
-        aria-hidden="true"
-        className="hero-light pointer-events-none absolute bottom-[16vh] left-1/2 h-[55vh] w-[80vw] max-w-5xl -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(104,134,218,0.13),transparent_68%)] blur-2xl"
-      />
-
-      <div className="hero-composition relative z-10 flex w-full max-w-6xl flex-col items-center px-5 pb-[12vh]">
-        {/* Notebook */}
-        <div data-crossing-notebook className="relative z-20">
-          <div
-            data-notebook
-            className="hero-notebook relative w-[min(78vw,680px)]"
-          >
-            <div className="rounded-[18px] border border-white/10 bg-[#101114] p-2 shadow-2xl shadow-black">
-              <div
-                data-screen
-                className="relative aspect-16/10 overflow-hidden rounded-[11px] border border-white/5 bg-[#090d16] shadow-[0_0_35px_rgba(118,155,255,0.16),inset_0_0_35px_rgba(80,110,190,0.07)]"
+      <div data-shared-camera className="hero-shared-camera absolute inset-0">
+        <div className="hero-plate-canvas" aria-hidden="true">
+          {heroPlates.map((plate, index) => {
+            const shouldLoad = index === 0 || loadProgressivePlates;
+            return (
+              <picture
+                key={plate.id}
+                data-plate={plate.id}
+                className={`hero-plate ${index === 0 ? 'is-visible' : ''}`}
               >
-              <div
-                data-terminal
-                className="hero-terminal absolute inset-0 flex flex-col justify-center px-[9%] font-mono text-[clamp(10px,1.4vw,15px)] leading-7 text-white/55"
-              >
-                <span className="text-white/25">devclub@future:~</span>
-
-                <p className="mt-3">
-                  <span className="text-white/35">$</span>{' '}
-                  <span>iniciar-jornada</span>
-                  <span
-                    data-cursor
-                    className="ml-1 inline-block h-[1em] w-[0.5em] translate-y-[0.12em] bg-white/70"
-                    aria-hidden="true"
-                  />
-                </p>
-              </div>
-
-                <div
-                  aria-hidden="true"
-                  className="absolute left-1/2 top-2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-black"
+                {shouldLoad && (
+                  <>
+                    <source type="image/avif" srcSet={plate.avifSrcSet} sizes="100vw" />
+                    <source type="image/webp" srcSet={plate.webpSrcSet} sizes="100vw" />
+                  </>
+                )}
+                <img
+                  src={shouldLoad ? plate.fallback : undefined}
+                  alt=""
+                  width="2688"
+                  height="1520"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : 'low'}
+                  decoding={index === 0 ? 'sync' : 'async'}
                 />
-              </div>
-            </div>
+              </picture>
+            );
+          })}
 
-            {/* Base do notebook */}
-            <div className="relative mx-auto h-3 w-[108%] translate-x-[-4%] rounded-b-[45%] bg-linear-to-b from-[#36383d] to-[#151619] shadow-xl">
-              <div className="absolute left-1/2 top-0 h-1 w-[16%] -translate-x-1/2 rounded-b-md bg-black/45" />
-            </div>
+          <div className="hero-plate-terminal" data-terminal>
+            <TerminalVisual />
           </div>
         </div>
 
-        {/* Mesa */}
-        <div
-          data-desk
-          className="hero-desk relative z-10 -mt-1 h-14 w-[min(96vw,1050px)] rounded-[50%] border-t border-white/10 bg-linear-to-b from-[#1a1715] to-[#0b0a09] shadow-[0_-12px_40px_rgba(0,0,0,0.8)]"
-        >
-          {/* Caneca */}
-          <div
-            aria-hidden="true"
-            className="absolute bottom-7 right-[9%] hidden h-14 w-12 rounded-b-xl rounded-t-md border border-white/10 bg-[#111214] shadow-xl sm:block"
-          >
-            <div className="absolute left-full top-3 h-7 w-5 rounded-r-full border-[5px] border-l-0 border-[#17181b]" />
-          </div>
-
-          {/* Caderno */}
-          <div
-            aria-hidden="true"
-            className="absolute bottom-5 left-[7%] hidden h-18 w-28 -rotate-6 rounded-sm border border-white/10 bg-[#151515] shadow-xl sm:block"
-          >
-            <div className="absolute inset-y-0 left-3 w-px bg-white/10" />
-          </div>
-        </div>
+        <FallbackWorkspace />
       </div>
 
-      <div
-        data-scroll-hint
-        className="hero-message absolute bottom-6 left-1/2 z-20 w-[calc(100%-2rem)] -translate-x-1/2 text-center text-[10px] uppercase tracking-[0.32em] text-white/45"
-      >
-        Uma decisão muda tudo
+      <header data-hero-interface className="hero-header">
+        <a className="hero-brand" href="#top" aria-label="DevClub, voltar ao início">
+          DEVCLUB <span aria-hidden="true">//</span>
+        </a>
+        <nav aria-label="Navegação principal">
+          <ul className="hero-navigation">
+            {navigationItems.map((item) => (
+              <li key={item}>
+                <a href="#jornada">
+                  {item}<span aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </header>
+
+      <div data-start-guide className="hero-start-guide" aria-hidden="true">
+        <p>Role para<br />começar</p>
+        <span className="hero-start-line" />
+        <span className="hero-start-dot" />
       </div>
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.72)_100%)]"
-      />
-
-      <div
-        data-portal
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-30 bg-[#090d16] opacity-0"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(104,134,218,0.14),transparent_48%)]" />
+      <div data-hero-copy className="hero-copy">
+        <h1 id="hero-title">
+          Uma decisão
+          <span>Muda <em>tudo.</em></span>
+        </h1>
+        <p>Sua jornada começa com um único passo.</p>
       </div>
+
+      <div className="sr-only" aria-label="Transcrição completa do terminal">
+        <p>{heroTranscript[0].text}</p>
+        <p>$ {heroTranscript[1].text}</p>
+        <ol>
+          {heroResponseLines.map((line) => <li key={line.id}>{line.text}</li>)}
+        </ol>
+      </div>
+
+      <div data-scroll-hint className="hero-scroll-hint" aria-hidden="true">
+        <span />
+        <p>Scroll</p>
+      </div>
+
+      <div data-wall-light className="hero-wall-light" aria-hidden="true" />
+      <div data-response-light className="hero-response-light" aria-hidden="true" />
+      <div data-atmosphere-vignette className="hero-vignette" aria-hidden="true" />
+      <div data-portal className="hero-portal" aria-hidden="true" />
     </section>
+  );
+}
+
+function TerminalVisual() {
+  return (
+    <div aria-hidden="true" className="hero-terminal-visual">
+      <span className="hero-terminal-prompt">{heroTranscript[0].text}</span>
+      <p className="hero-terminal-command">
+        <span>$</span> {heroTranscript[1].text}
+        <i data-cursor aria-hidden="true" />
+      </p>
+      <div className="hero-terminal-responses">
+        {heroResponseLines.map((line) => (
+          <p key={line.id} data-terminal-response={line.id}>{line.text}</p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FallbackWorkspace() {
+  return (
+    <div className="hero-fallback" aria-hidden="true">
+      <div className="hero-fallback-light" />
+      <div className="hero-fallback-notebook" data-terminal-fallback>
+        <div className="hero-fallback-screen">
+          <TerminalVisual />
+        </div>
+        <div className="hero-fallback-base" />
+      </div>
+      <div className="hero-fallback-desk" />
+    </div>
   );
 }

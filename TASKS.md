@@ -22,11 +22,24 @@
 - [x] Layout mobile, baixa altura e orientação horizontal.
 - [x] Animação de entrada com fallback estático.
 - [x] Reduced motion.
-- [ ] Validação de performance.
+- [x] Validação de performance da Hero (variantes responsivas e bytes transferidos).
 - [x] Metadados essenciais em português.
 - [x] Resíduos comprovados do template removidos.
 - [x] Typecheck explícito configurado e aprovado.
 - [x] Lenis mantido sem uso até avaliação na Sprint 2.
+- [x] Blueprint cinematográfico 20–30 s redesenhado a partir de princípios emocionais.
+- [x] Blueprint cinematográfico aprovado para implementação com redução de escopo.
+- [x] Parte A — transcript acessível e configuração tipada realmente consumida.
+- [x] Parte A — primeiro gesto, respostas reversíveis e iluminação sincronizada.
+- [x] Parte A — comportamento compacto para mobile/baixa altura e fallback reduced motion.
+- [x] MS-01 — dramaturgia e transcript no DOM (concluída dentro da Parte A).
+- [x] MS-02 — convite iniciado pelo primeiro scroll, sem autoplay narrativo.
+- [x] MS-03 — respostas e ambiente sincronizados em cinco checkpoints.
+- [x] MS-04 — push-in único no terço final e passagem existente preservada.
+- [x] MS-05 — versões desktop, tablet, mobile e baixa altura calibradas.
+- [x] MS-06 — acessibilidade, performance e direção final.
+- [x] Direção criativa final da Hero congelada; nenhuma nova proposta de redesign.
+- [x] Quality Gate criativo: a Hero sustenta pausa antes da continuidade da jornada.
 
 ## Sprint 2 — Travessia
 
@@ -65,6 +78,30 @@
 - [ ] Assets otimizados.
 - [ ] Fallbacks.
 - [ ] Integração mobile.
+- [x] Fase de geração de HERO-02 encerrada sem novas gerações previstas.
+- [x] HERO-02-v01 arquivado como referência histórica (`archived-reference`).
+- [x] HERO-02-v02 rejeitado e preservado apenas como registro.
+- [x] Análise e ExecPlan de integração da base HERO-02 documentados.
+- [x] Integração experimental de HERO-02-v01 executada e validada sem substituir o fallback DOM/CSS abaixo de 1024 px.
+- [x] Integração fotográfica rejeitada e removida; Hero definitiva restaurada em CSS/DOM.
+- [x] OP-005 e prompt imutável de HERO-PLATE-01 registrados.
+- [x] HERO-PLATE-01 encerrado sem geração após congelamento da Hero sem vídeo ou novos assets.
+- [x] HERO-FINAL-01 — modelo e parâmetros Higgsfield validados sem consumo de créditos.
+- [x] HERO-FINAL-01 — ordem OP-006 e prompt v01 imutável registrados.
+- [x] HERO-FINAL-01 — referência final enviada e confirmada como mídia Higgsfield.
+- [x] HERO-FINAL-01 — submissão única executada e rejeitada por exigir plano Basic ou superior, sem débito.
+- [x] HERO-FINAL-01 — encerrado sem retry, integração ou asset; `REVISION REQUIRED`.
+- [x] OP-007 — roadmap máximo de 14 assets e Gates A–C documentados.
+- [x] HERO-01 The Silence — prompt final congelado e preflight aprovado.
+- [x] HERO-01 The Silence — geração única GPT Image 2 concluída e salva.
+- [x] HERO-01 The Silence — Quality Gate aprovado sem integração.
+- [x] HERO-02 The Awakening — Gate B autorizado, gerado uma vez e aprovado.
+- [x] HERO-03 The Signal — Gate C autorizado, gerado uma vez e aprovado.
+- [x] HERO-04 The Decision — geração dispensada; resolver com CSS/GSAP.
+- [x] HERO-05 The Threshold — geração dispensada; resolver com push-in/portal existentes.
+- [x] Hero Pack encerrado em três plates aprovados e integrados.
+- [x] 24 derivados AVIF/WebP produzidos em 2560/1920/1440/1024.
+- [x] Crossfades, carregamento progressivo, fallback CSS/DOM e matriz de dez viewports validados.
 
 ## Sprint 6 — Entrega
 

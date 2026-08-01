@@ -62,6 +62,7 @@ export function JourneySection() {
 
   return (
     <section
+      id="jornada"
       ref={sectionRef}
       className="journey-story relative isolate overflow-hidden bg-[#090d16]"
       aria-labelledby="journey-title"
