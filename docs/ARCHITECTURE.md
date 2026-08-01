@@ -3,7 +3,7 @@
 ## Estado atual
 
 - Vite inicia a aplicação por `src/main.tsx`.
-- `src/App.tsx` fornece o marco semântico `main` e organiza Hero, Story Scroll, Formações, Mentalidade, Quem Somos, Alunos, Empresas, Tutores e uma continuação neutra para o CTA.
+- `src/App.tsx` fornece o marco semântico `main`, hospeda a âncora estável `#top` fora do elemento pinado e organiza Hero, Story Scroll, Formações, Mentalidade, Quem Somos, Alunos, Empresas, Tutores e CTA final.
 - `src/components/hero/HeroScene.tsx` concentra a cena, a timeline de entrada e a travessia curta com GSAP/ScrollTrigger.
 - `src/components/hero/hero-transcript.ts` é a fonte tipada única das linhas e dos níveis de luz da Parte A.
 - `src/components/journey/JourneySection.tsx` controla a composição editorial e uma timeline desktop.
@@ -15,7 +15,7 @@
 - O terminal visual é oculto da árvore acessível; uma transcrição estática equivalente permanece semanticamente disponível, sem `aria-live`.
 - A Hero definitiva é integralmente CSS/DOM; não há imagem HERO-02, renderização condicional ou breakpoint de mídia fotográfica no bundle de produção.
 - ScrollTrigger usa scroll nativo, pin curto e variantes desktop/tablet/mobile; Lenis foi removido.
-- O Story Scroll está implementado; ainda não há seções institucionais definitivas.
+- Story Scroll e todas as seções institucionais definitivas estão implementados.
 - `src/components/formations/formation-data.ts` é a fonte tipada dos nove pilares da única formação Full Stack.
 - `FormationsSection` compõe o cabeçalho editorial e `devclub-orbit-ecosystem.tsx` concentra seleção, órbitas CSS, trilha mobile e detalhe compartilhado.
 - `src/components/students/student-stories.ts` contém sete relatos fictícios estáveis; `StudentsSection` e `stagger-testimonials.tsx` separam conteúdo, seção e comportamento do carrossel.
@@ -24,6 +24,7 @@
 - `src/components/about/AboutSection.tsx` apresenta o ambiente institucional por meio de contexto, quatro princípios e uma progressão visual desktop com GSAP/ScrollTrigger sem pin.
 - `src/components/companies/company-data.ts` contém oito marcas fictícias tipadas; `CompaniesSection.tsx` controla o campo editorial, seleção compartilhada e reveal desktop sem pin.
 - `src/components/tutors/tutor-data.ts` contém cinco perfis fictícios tipados; `TutorsSection.tsx` controla o seletor de vozes, perfil compartilhado e entrada desktop sem pin.
+- `src/components/final-cta/FinalCtaSection.tsx` encerra a narrativa, contém as duas ações, a passagem luminosa e o footer mínimo.
 
 ## Princípios
 
@@ -56,17 +57,17 @@
 - reduced motion;
 - comportamento mobile próprio.
 
-O transform da entrada permanece em `data-notebook`; o transform da travessia usa `data-crossing-notebook`. Essa separação evita disputa de propriedades e garante retorno ao estado final da Hero.
-
-A Hero final usa uma única timeline narrativa e um único ScrollTrigger com pin. A mesma progressão controla linhas do terminal, parede, luz ambiental, contraste periférico, glow da tela, push-in e passagem. Isso elimina timelines paralelas sobre a mesma geometria. O transform do notebook interno permanece reservado à entrada; somente `data-crossing-notebook` recebe o push-in no terço final.
+A Hero mantém uma timeline temporal de entrada e uma timeline narrativa com o único ScrollTrigger pinado. No primeiro progresso real do scroll, a entrada é concluída e encerrada; só então a narrativa assume os elementos compartilhados. A mesma progressão controla terminal, parede, luz ambiental, contraste periférico, câmera compartilhada e passagem, sem ownership concorrente.
 
 Mobile e baixa altura usam distância, checkpoints, scrub e intensidade próprios. Em reduced motion, a timeline narrativa, o pin, o cursor intermitente e o push-in não são criados; o transcript final permanece no DOM e a página segue em fluxo normal.
 
 O Story Scroll não adiciona pin: CSS sticky mantém o painel desktop em contexto, enquanto uma única timeline altera progresso, palavra e marcador. A partir de 1024 px o painel existe; abaixo disso, e em reduced motion, as etapas seguem sem timeline.
 
+As timelines editoriais de Quem Somos, Empresas, Tutores e CTA também começam em 1024 px. A base é `top 76%` → `bottom 64%`, scrub 0,45, `power1.out`, reveal de até 18 px e stagger 0,12/0,14/0,16 conforme texto, estrutura ou densidade; Quem Somos e CTA conservam envelopes próprios documentados em `docs/ANIMATIONS.md`. Anchors usam comportamento nativo instantâneo, sem smooth scroll do navegador ou biblioteca concorrente.
+
 ## Pendência
 
-Adicionar o CTA como responsabilidade própria, preservando a jornada como narrativa de transição e evitando abstrações genéricas de seção.
+Substituir a constante de destino provisório do CTA quando uma URL institucional oficial for validada.
 
 ## Conteúdo institucional da Sprint 4
 
@@ -76,11 +77,13 @@ O carrossel mantém `activeIndex`, calcula vizinhos com índice modular e render
 
 A seção Mentalidade é estruturalmente estática. Seu frame é um `figure` não interativo; a relação com YouTube existe apenas no link explícito e não adiciona recursos externos ao carregamento da página.
 
-Quem Somos usa dados locais tipados no próprio componente porque seus quatro princípios são exclusivos da seção. Desktop combina statement sticky e conteúdo em fluxo; uma única timeline modifica apenas opacity e transform do reveal, do eixo e dos pontos. Abaixo de 901 px e em reduced motion, toda a composição permanece no estado final sem timeline.
+Quem Somos usa dados locais tipados no próprio componente porque seus quatro princípios são exclusivos da seção. Desktop combina statement sticky e conteúdo em fluxo; uma única timeline modifica apenas opacity e transform do reveal, do eixo e dos pontos. Abaixo de 1024 px e em reduced motion, toda a composição permanece no estado final sem timeline.
 
 Empresas usa `activeId` para selecionar uma das oito marcas e consumir nome, iniciais, setor e accent. Desktop posiciona marcas em um campo controlado; mobile troca por grid. Uma timeline restrita a desktop revela copy, linhas e marcas por opacity e transform, sem loop ou pin. Todos os nomes permanecem no DOM.
 
 Tutores usa `activeId` para selecionar uma de cinco vozes e renderizar um único perfil compartilhado. Botões com `aria-pressed` preservam interação nativa; desktop usa sequência vertical conectada por uma linha de conversa e mobile usa lista horizontal. Uma timeline restrita a desktop revela copy, eixo e vozes por opacity e transform, sem loop ou pin.
+
+O CTA final não possui estado React. Dois links semânticos usam destinos internos enquanto a URL institucional não existe: `#quem-somos` como fallback primário documentado e `#top` como retorno. Uma timeline desktop revela copy, ações e passagem por opacity e transform, sem pin; mobile e reduced motion são estáticos.
 
 ## Hero Pack em produção
 

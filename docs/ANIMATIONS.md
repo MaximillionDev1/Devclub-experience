@@ -8,6 +8,14 @@
 - reduced motion obrigatório;
 - mobile pode usar versão simplificada.
 
+## Baseline editorial — MS-01
+
+- motion editorial expandido somente a partir de `1024px` e sob `prefers-reduced-motion: no-preference`;
+- trigger base de `top 76%` a `bottom 64%`, scrub `0,45`, `power1.out` e reveal vertical de até `18px`;
+- stagger de texto `0,12`, grupos estruturais `0,14` e campos densos no máximo `0,16`;
+- exceções permanecem locais e narrativamente justificadas: Quem Somos usa `top 74%` → `bottom 62%` para percorrer quatro princípios; CTA usa `top 78%` → `bottom 68%` para preservar o silêncio do encerramento; Hero e Story Scroll mantêm progressões próprias;
+- nenhuma timeline editorial adiciona pin; tablet, mobile e reduced motion exibem o estado final estável.
+
 ## Hero
 
 ### Implementado na Sprint 1
@@ -32,16 +40,17 @@
 1. Uma timeline principal substitui a timeline auxiliar da Parte A e a antiga timeline separada de travessia.
 2. Checkpoints desktop: 0,02; 0,15; 0,27; 0,40; 0,56. Mobile/baixa altura: 0,015; 0,12; 0,22; 0,33; 0,46.
 3. Cada checkpoint revela uma resposta e altera simultaneamente parede, luz ambiente, vinheta e glow físico da tela.
-4. A câmera permanece imóvel até 0,68. Entre 0,68–0,88 ocorre o único push-in: 1,12 desktop, 1,08 tablet e 1,04 mobile.
+4. A câmera permanece imóvel até 0,68. Entre 0,68–0,88 ocorre o único push-in: 1,10 desktop, 1,06 tablet e 1,04 mobile.
 5. A passagem existente assume a cena a partir de 0,88, sem novo pin e sem reescrever o Story Scroll.
-6. A distância é 1,25 viewport no desktop, 0,90 no tablet e 0,65 no mobile; não há autoplay narrativo.
+6. A distância é 1,35 viewport no desktop, 1,00 no tablet e 0,70 no mobile; não há autoplay narrativo.
+7. A entrada temporal possui os elementos compartilhados até o primeiro progresso real do ScrollTrigger; nesse instante ela conclui seu estado final e é encerrada antes de a timeline cinematográfica assumir `data-start-guide`, `data-hero-copy` e `data-scroll-hint`.
 
 ## Travessia
 
 1. ScrollTrigger fixa a Hero por uma distância deliberada e controla a timeline cinematográfica unificada com scrub.
 2. O notebook aproxima em wrapper próprio e a tela recebe expansão discreta.
 3. Um overlay opaco assume a cena e coincide com o fundo da jornada editorial.
-4. Desktop usa 1,25 viewport/escala 1,12; tablet 0,90/1,08; mobile 0,65/1,04.
+4. Desktop usa 1,35 viewport/escala 1,10; tablet 1,00/1,06; mobile 0,70/1,04.
 5. `invalidateOnRefresh` recalcula a distância e `anticipatePin` reduz salto na entrada.
 6. O retorno ao topo restaura wrapper, tela e overlay; há um único pin após reload, resize e refresh intermediário.
 7. Em `prefers-reduced-motion: reduce`, a timeline de entrada, cursor infinito e ScrollTrigger não são criados; Hero e destino seguem no fluxo normal.
@@ -87,7 +96,7 @@
 
 ## Quem Somos
 
-1. Uma única timeline desktop opera em `min-width: 901px` e `prefers-reduced-motion: no-preference`.
+1. Uma única timeline desktop opera em `min-width: 1024px` e `prefers-reduced-motion: no-preference`.
 2. O trigger é a própria seção, de `top 74%` a `bottom 62%`, com scrub 0,45 e sem pin.
 3. Statement e contexto entram por opacity e deslocamento vertical; os quatro princípios acompanham uma linha que cresce entre quatro pontos.
 4. A animação é reversível e recalculada no refresh; `useGSAP`, escopo e `matchMedia().revert()` garantem cleanup.
@@ -96,8 +105,8 @@
 
 ## Empresas
 
-1. Uma timeline desktop opera em `min-width: 901px` e `prefers-reduced-motion: no-preference`.
-2. O trigger é a própria seção, de `top 76%` a `bottom 62%`, com scrub 0,45 e sem pin.
+1. Uma timeline desktop opera em `min-width: 1024px` e `prefers-reduced-motion: no-preference`.
+2. O trigger segue a base editorial, de `top 76%` a `bottom 64%`, com scrub 0,45 e sem pin.
 3. Copy entra por opacity e deslocamento vertical; três linhas ganham escala horizontal e oito marcas aparecem em ordem deliberada.
 4. Retorno do scroll reverte linha e presença das marcas; seleção de empresa permanece independente da timeline.
 5. Tablet, mobile e reduced motion mostram imediatamente o campo completo ou a grade compacta.
@@ -105,12 +114,22 @@
 
 ## Tutores
 
-1. Uma timeline desktop opera em `min-width: 901px` e `prefers-reduced-motion: no-preference`.
+1. Uma timeline desktop opera em `min-width: 1024px` e `prefers-reduced-motion: no-preference`.
 2. O trigger é a própria seção, de `top 76%` a `bottom 64%`, com scrub 0,45 e sem pin.
 3. Copy e perfil entram por opacity e deslocamento vertical; a linha de conversa cresce e as cinco vozes aparecem em sequência.
 4. A seleção do perfil permanece independente da timeline e usa somente estado React por interação, nunca por frame.
 5. Tablet, mobile e reduced motion mostram imediatamente o conteúdo completo e o seletor funcional.
-6. Não há animação contínua, retrato flutuante, parallax ou novo `pin-spacer`.
+6. Hover, foco e seleção deslocam o conteúdo interno por `transform`; padding não é animado e não há reflow de interação.
+7. Não há animação contínua, retrato flutuante, parallax ou novo `pin-spacer`.
+
+## CTA final
+
+1. Uma timeline desktop opera em `min-width: 1024px` e `prefers-reduced-motion: no-preference`.
+2. O trigger é a própria seção, de `top 78%` a `bottom 68%`, com scrub 0,45 e sem pin.
+3. Eyebrow, headline, apoio, ações e nota entram por opacity e deslocamento vertical.
+4. A passagem luminosa completa escala vertical e a linha de limiar cresce horizontalmente; ambas são decorativas.
+5. Tablet, mobile e reduced motion exibem imediatamente o estado final completo.
+6. Não há cursor infinito, parallax, partículas, zoom ou animação contínua.
 
 ## Story Scroll
 

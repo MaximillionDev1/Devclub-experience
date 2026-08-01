@@ -12,7 +12,7 @@ export function CompaniesSection() {
       const media = gsap.matchMedia();
 
       media.add(
-        '(min-width: 901px) and (prefers-reduced-motion: no-preference)',
+        '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
         () => {
           const marks = gsap.utils.toArray<HTMLElement>('[data-company-mark]');
           const lines = gsap.utils.toArray<HTMLElement>('[data-company-line]');
@@ -26,7 +26,7 @@ export function CompaniesSection() {
             scrollTrigger: {
               trigger: sectionRef.current,
               start: 'top 76%',
-              end: 'bottom 62%',
+              end: 'bottom 64%',
               scrub: 0.45,
               invalidateOnRefresh: true,
             },
@@ -35,7 +35,7 @@ export function CompaniesSection() {
           entrance
             .to('[data-companies-reveal]', { autoAlpha: 1, y: 0, duration: 0.75, stagger: 0.12 })
             .to(lines, { scaleX: 1, duration: 1.9, stagger: 0.16, ease: 'none' }, 0.45)
-            .to(marks, { autoAlpha: 1, y: 0, scale: 1, duration: 0.48, stagger: 0.18 }, 0.65);
+            .to(marks, { autoAlpha: 1, y: 0, scale: 1, duration: 0.48, stagger: 0.16 }, 0.65);
         },
       );
 

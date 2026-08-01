@@ -35,6 +35,7 @@ export function HeroScene() {
   useGSAP(
     () => {
       const media = gsap.matchMedia();
+      let entrance: gsap.core.Timeline | null = null;
 
       media.add('(prefers-reduced-motion: no-preference)', () => {
         gsap.set('[data-hero-interface]', { autoAlpha: 0, y: -8 });
@@ -43,7 +44,7 @@ export function HeroScene() {
         gsap.set('[data-scroll-hint]', { autoAlpha: 0, y: 8 });
         gsap.set('[data-terminal], [data-terminal-fallback]', { autoAlpha: 0 });
 
-        const entrance = gsap.timeline({ defaults: { ease: 'power2.out' } });
+        entrance = gsap.timeline({ defaults: { ease: 'power2.out' } });
         entrance
           .to('[data-hero-interface]', { autoAlpha: 1, y: 0, duration: 0.9 })
           .to('[data-hero-copy]', { autoAlpha: 1, y: 0, duration: 1 }, 0.25)
@@ -83,6 +84,13 @@ export function HeroScene() {
           });
           gsap.set('[data-response-light], [data-wall-light]', { autoAlpha: 0 });
 
+          const claimCinematicOwnership = () => {
+            if (!entrance) return;
+
+            entrance.progress(1).kill();
+            entrance = null;
+          };
+
           const cinematic = gsap.timeline({
             defaults: { ease: 'none' },
             scrollTrigger: {
@@ -93,6 +101,9 @@ export function HeroScene() {
               scrub: isCompact ? 0.35 : isTablet ? 0.55 : 0.7,
               anticipatePin: 1,
               invalidateOnRefresh: true,
+              onUpdate: (self) => {
+                if (self.progress > 0) claimCinematicOwnership();
+              },
             },
           });
 
@@ -153,7 +164,6 @@ export function HeroScene() {
 
   return (
     <section
-      id="top"
       ref={sceneRef}
       className="hero-scene relative isolate min-h-screen overflow-hidden bg-[#050607]"
       aria-labelledby="hero-title"

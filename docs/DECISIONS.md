@@ -335,3 +335,31 @@
 **Trade-offs:** os perfis não constituem prova factual de equipe e exigem disclosure documental. Em troca, a seção comunica variedade de contexto humano com baixo custo, conteúdo integral no DOM e interação acessível.
 
 **Arquivos relacionados:** `src/components/tutors/tutor-data.ts`, `src/components/tutors/TutorsSection.tsx`, `src/App.tsx`, `src/index.css`, `docs/plans/012-tutores.md`.
+
+## ADR-026 — CTA como passagem aberta, sem destino institucional inventado
+
+**Status:** aceita e executada.
+
+**Contexto:** o fechamento precisava convidar à ação e concluir a ideia da Hero, mas o repositório não possui uma URL institucional oficial verificada do DevClub.
+
+**Decisão:** usar “A decisão continua sendo sua.” e representar o próximo caminho por uma única passagem luminosa DOM/CSS. A ação primária usa a constante explicitamente provisória `DEVCLUB_DESTINATION_PLACEHOLDER`, apontando para `#quem-somos` até existir URL oficial; a secundária retorna a `#top`. Um footer mínimo encerra a página.
+
+**Alternativas:** inventar URL externa; omitir ação primária; usar banner promocional; repetir terminal ou órbitas; criar footer completo.
+
+**Trade-offs:** o botão primário ainda não conduz a uma página de conversão. Em troca, permanece funcional, honesto, semanticamente correto e pronto para uma substituição localizada.
+
+**Arquivos relacionados:** `src/components/final-cta/FinalCtaSection.tsx`, `src/App.tsx`, `src/index.css`, `docs/plans/013-final-cta.md`.
+
+## ADR-027 — Uma baseline editorial com ownership explícito na Hero
+
+**Status:** aceita e executada.
+
+**Contexto:** a auditoria MS-01 encontrou duas timelines escrevendo em elementos compartilhados da Hero, scroll suave delegado ao navegador, breakpoints editoriais divergentes e pequenas variações de trigger e stagger sem regra registrada. Tutores também deslocava conteúdo por padding, causando reflow.
+
+**Decisão:** concluir e encerrar a entrada temporal da Hero no primeiro progresso real do ScrollTrigger antes de a timeline cinematográfica assumir seus elementos compartilhados; remover `scroll-behavior: smooth` e hospedar `#top` no `main`, fora do elemento pinado; ativar motion editorial somente a partir de 1024 px; adotar `top 76%` → `bottom 64%`, scrub 0,45 e stagger 0,12/0,14/0,16 como baseline, mantendo apenas as exceções narrativas documentadas; trocar o deslocamento de padding de Tutores por transform do conteúdo interno; remover o `will-change` permanente da câmera e confiar na promoção transitória feita durante o transform do GSAP.
+
+**Alternativas:** fundir ou substituir timelines funcionais da Hero; adicionar smooth-scroll programático; criar tokens ou helpers de animação; uniformizar Hero e Story Scroll à força; manter padding e promoção permanente.
+
+**Trade-offs:** anchors deixam de ter interpolação automática e tablets até 1023 px usam composição editorial estática. Em troca, o scroll fica previsível, o breakpoint se torna coerente, a interação de Tutores não recalcula layout e a gramática permanece pequena sem novas animações.
+
+**Arquivos relacionados:** `src/components/hero/HeroScene.tsx`, `src/components/about/AboutSection.tsx`, `src/components/companies/CompaniesSection.tsx`, `src/components/tutors/TutorsSection.tsx`, `src/components/final-cta/FinalCtaSection.tsx`, `src/index.css`, `docs/ANIMATIONS.md`, `docs/plans/014-motion-direction.md`.

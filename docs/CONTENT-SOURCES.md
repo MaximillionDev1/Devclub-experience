@@ -80,3 +80,9 @@ Os cinco nomes e perfis em `src/components/tutors/tutor-data.ts` são fictícios
 - Bianca Luz.
 
 Eles não representam profissionais confirmados, integrantes ou colaboradores documentados do DevClub. As especialidades refletem o ecossistema educacional pretendido — interfaces, APIs, dados, carreira e inteligência artificial — e não afirmam disponibilidade, modalidade ou volume específico de mentoria.
+
+## CTA final
+
+Não foi encontrada uma URL institucional oficial do DevClub nas fontes de verdade do projeto. Por isso, `DEVCLUB_DESTINATION_PLACEHOLDER` aponta temporariamente para a seção interna `#quem-somos`. O destino não representa link de inscrição, venda ou matrícula e deve ser substituído somente quando uma URL oficial for fornecida e validada.
+
+A copy final retoma as ideias editoriais já aprovadas — decisão, próximo passo e agência do visitante — sem acrescentar promessa de emprego, resultado financeiro, urgência ou escassez.

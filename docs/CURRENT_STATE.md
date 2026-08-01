@@ -2,7 +2,7 @@
 
 ## Status
 
-Sprint 4 em andamento: após Hero, travessia e Story Scroll, a página apresenta Formação, Mentalidade, Quem Somos, histórias de alunos, Empresas e Tutores.
+Sprint 5 em andamento: MS-01 Motion Direction implementado sobre a experiência completa, sem novas animações, seções, assets ou alterações de layout e copy.
 
 ## Validações confirmadas
 
@@ -12,12 +12,15 @@ Sprint 4 em andamento: após Hero, travessia e Story Scroll, a página apresenta
 - `npm run typecheck`: aprovado.
 - `npm run build`: aprovado.
 - Sprint 4: `npm run lint` e `npm run typecheck` aprovados durante a implementação.
+- MS-01: `npm run lint`, `npm run typecheck`, `npm run build` e `git diff --check` aprovados após os refinamentos.
 
 ## Fase atual
 
-Sprint 4 — Formações, Mentalidade, Quem Somos, Alunos, Empresas e Tutores implementados. O ecossistema comunica nove pilares de uma única jornada Full Stack; Mentalidade estabelece a decisão; Quem Somos apresenta o ambiente; Alunos mostra transformações; Empresas representa destinos profissionais possíveis; Tutores acrescenta a camada humana de contexto e revisão.
+Sprint 5 — a linguagem de movimento foi consolidada. A Hero encerra sua entrada temporal no primeiro progresso real do scroll antes de a timeline cinematográfica assumir os elementos compartilhados. Scroll suave do navegador foi removido; motion editorial passa a iniciar em 1024 px; Tutores desloca conteúdo apenas por transform; e a baseline editorial foi documentada com exceções justificadas.
 
 A seção Mentalidade usa um artefato DOM/CSS do mesmo universo da Hero, sem thumbnail, player, retrato, iframe ou recurso remoto. O vídeo oficial aparece somente como link externo secundário após o conteúdo completo no DOM.
+
+A regressão MS-01 percorreu 1440×900, 1366×768, 1280×720, 1024×768, 1023×768, 768×1024, 430×932, 390×844, 360×640, 844×390 e 1280×600. Todas as nove seções permaneceram presentes, com um único pin e sem overflow horizontal. Scroll precoce e reverso da Hero, corte 1023/1024, anchors da Hero, retorno `#top`, estado ativo de Tutores e CTA foram confirmados. O navegador não expôs emulação de reduced motion; logs observados pertenciam exclusivamente a uma extensão do Chrome, não à aplicação.
 
 Quem Somos combina statement institucional, contexto e quatro princípios: aprender construindo, evoluir acompanhado, transformar prática em portfólio e preparar para o mercado. Um arco parcial e um eixo de quatro pontos continuam a linguagem espacial de Formações sem repetir sua órbita ou interação.
 
@@ -32,6 +35,10 @@ A matriz de dez viewports foi repetida com reload individual. Não houve overflo
 Tutores usa cinco perfis fictícios e um único painel compartilhado. A seleção por botões consome nome, iniciais, especialidade, statement, tipo de apoio e accent; desktop organiza as vozes em sequência vertical e mobile usa seletor horizontal. Não há retratos, perfis reais ou promessa de disponibilidade individual.
 
 A matriz solicitada foi repetida para Tutores em 1440×900, 1366×768, 1280×720, 1024×768, 768×1024, 430×932, 390×844, 360×640, 844×390 e 1280×600. Os cinco controles mantêm targets de 88–92 px, o perfil permanece legível, não há overflow, recurso remoto ou novo pin. Âncora, seleção repetida, Tab e reverse scroll foram confirmados.
+
+O CTA final usa “A decisão continua sendo sua.”, uma passagem luminosa DOM/CSS e duas ações. Como não existe URL institucional verificada no repositório, “Conhecer o DevClub” usa temporariamente a constante documentada `DEVCLUB_DESTINATION_PLACEHOLDER` com destino interno `#quem-somos`; “Rever a jornada” retorna a `#top`. Um footer mínimo encerra a página sem sitemap ou links inventados.
+
+A matriz solicitada foi repetida para o CTA em 1440×900, 1366×768, 1280×720, 1024×768, 768×1024, 430×932, 390×844, 360×640, 844×390 e 1280×600. Links mantêm targets acima de 52 px, não há overflow, recurso remoto, erro da aplicação ou pin adicional. As duas ações, foco sequencial e reverse scroll foram confirmados.
 
 Em paralelo, a geração de HERO-02 foi encerrada: v01 está arquivada como referência e v02 está rejeitada. A integração experimental desktop foi rejeitada e removida. A Hero definitiva voltou integralmente à composição CSS/DOM.
 
@@ -71,15 +78,16 @@ O blueprint cinematográfico em `docs/plans/006-hero-cinematic-blueprint.md` foi
 - versão compacta sem pin adicional para mobile e baixa altura;
 - estado reduced motion completo no CSS/DOM, sem digitação simulada, scrub ou cursor intermitente.
 - timeline narrativa consolidada no mesmo ScrollTrigger que mantém o único pin da Hero;
-- notebook interno fisicamente estável e push-in de câmera limitado a 1,12 no desktop, 1,08 no tablet e 1,04 no mobile;
+- notebook interno fisicamente estável e push-in de câmera limitado a 1,10 no desktop, 1,06 no tablet e 1,04 no mobile;
 - parede, luz ambiente, contraste periférico e glow da tela sincronizados aos cinco estados do terminal;
 - direção final aprovada no Quality Gate e congelada sem vídeo, imagem ou asset adicional.
 
 ## Próxima etapa
 
-1. Definir o CTA final agora que o conteúdo institucional está completo.
-2. Validar visualmente a experiência completa com `prefers-reduced-motion: reduce` efetivamente ativo.
-3. Medir LCP, CLS e bytes em ambiente de produção e dispositivo real.
+1. Iniciar MS-02 — direção tipográfica.
+2. Substituir o destino provisório do CTA quando uma URL institucional oficial for fornecida.
+3. Validar visualmente a experiência completa com `prefers-reduced-motion: reduce` efetivamente ativo.
+4. Medir LCP, CLS e bytes em ambiente de produção e dispositivo real.
 
 ## Problemas conhecidos
 
@@ -89,7 +97,7 @@ O blueprint cinematográfico em `docs/plans/006-hero-cinematic-blueprint.md` foi
 - HERO-FINAL-01 não foi gerado: a submissão única com referência real foi recusada por exigir plano Basic ou superior; nenhum crédito foi consumido e não houve retry.
 - A instância de navegador usada reportou `prefers-reduced-motion: false` e não expôs emulação de mídia.
 - A performance não foi perfilada em dispositivo real.
-- Ainda não existem CTA final ou footer; Formações, Mentalidade, Quem Somos, Alunos, Empresas e Tutores já estão implementados.
+- A URL institucional oficial do CTA ainda não foi fornecida; a ação primária usa fallback interno explicitamente documentado.
 - HERO-02-v01 contém tela gerada e pequeno pseudo-branding no bezel; permanece somente como referência histórica.
 - HERO-02-v02 altera a cena e introduz uma pessoa; está rejeitada e não deve ser integrada nem usada como referência.
 - o build experimental entregava HERO-02-v01 como PNG de 2.688,17 kB; a referência foi removida do código de produção;

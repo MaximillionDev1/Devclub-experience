@@ -69,11 +69,17 @@
 - [x] Mentalidade — pausa editorial entre Formações e Alunos com reflexão oficial complementar.
 - [x] Empresas — campo editorial de destinos conceituais, oito marcas fictícias e detalhe acessível.
 - [x] Tutores — conversa editorial com cinco perfis fictícios e seleção acessível.
-- [ ] CTA final.
+- [x] CTA final — fechamento narrativo, passagem luminosa e ações acessíveis.
 - [x] Navegação da Hero conectada a Formações, Alunos e destinos futuros neutros.
 - [x] Reduced motion implementado para órbitas e transições do carrossel.
 
-## Sprint 5 — Assets
+## Sprint 5 — Direção criativa
+
+- [x] MS-01 — auditoria completa de movimento documentada.
+- [x] MS-01 — refinamentos aprovados de ownership, scroll, breakpoint, Tutor, baseline e `will-change` implementados.
+- [ ] MS-02 — direção tipográfica.
+
+### Histórico de assets
 
 - [ ] Assets necessários identificados.
 - [ ] Prompts registrados.

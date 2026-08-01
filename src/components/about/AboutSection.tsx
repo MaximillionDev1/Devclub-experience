@@ -38,7 +38,7 @@ export function AboutSection() {
       const media = gsap.matchMedia();
 
       media.add(
-        '(min-width: 901px) and (prefers-reduced-motion: no-preference)',
+        '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
         () => {
           const reveals = gsap.utils.toArray<HTMLElement>('[data-about-reveal]');
           const principles = gsap.utils.toArray<HTMLElement>('[data-about-principle]');
@@ -132,4 +132,3 @@ export function AboutSection() {
     </section>
   );
 }
-

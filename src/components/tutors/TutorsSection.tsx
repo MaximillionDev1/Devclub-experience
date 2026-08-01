@@ -12,7 +12,7 @@ export function TutorsSection() {
       const media = gsap.matchMedia();
 
       media.add(
-        '(min-width: 901px) and (prefers-reduced-motion: no-preference)',
+        '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
         () => {
           const voices = gsap.utils.toArray<HTMLElement>('[data-tutor-voice]');
 
