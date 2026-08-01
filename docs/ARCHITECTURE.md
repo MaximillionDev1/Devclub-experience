@@ -3,7 +3,7 @@
 ## Estado atual
 
 - Vite inicia a aplicação por `src/main.tsx`.
-- `src/App.tsx` fornece o marco semântico `main` e organiza Hero, Story Scroll, Formações, Mentalidade, Alunos e uma continuação neutra.
+- `src/App.tsx` fornece o marco semântico `main` e organiza Hero, Story Scroll, Formações, Mentalidade, Quem Somos, Alunos, Empresas e uma continuação neutra para Tutores.
 - `src/components/hero/HeroScene.tsx` concentra a cena, a timeline de entrada e a travessia curta com GSAP/ScrollTrigger.
 - `src/components/hero/hero-transcript.ts` é a fonte tipada única das linhas e dos níveis de luz da Parte A.
 - `src/components/journey/JourneySection.tsx` controla a composição editorial e uma timeline desktop.
@@ -21,6 +21,8 @@
 - `src/components/students/student-stories.ts` contém sete relatos fictícios estáveis; `StudentsSection` e `stagger-testimonials.tsx` separam conteúdo, seção e comportamento do carrossel.
 - `src/components/ui/` é o diretório único de componentes reutilizáveis compostos; não há shadcn nem alias novo.
 - `src/components/mindset/MindsetSection.tsx` contém statement, três princípios, artefato cinematográfico DOM/CSS e link externo oficial; não cria player ou estado de vídeo.
+- `src/components/about/AboutSection.tsx` apresenta o ambiente institucional por meio de contexto, quatro princípios e uma progressão visual desktop com GSAP/ScrollTrigger sem pin.
+- `src/components/companies/company-data.ts` contém oito marcas fictícias tipadas; `CompaniesSection.tsx` controla o campo editorial, seleção compartilhada e reveal desktop sem pin.
 
 ## Princípios
 
@@ -63,7 +65,7 @@ O Story Scroll não adiciona pin: CSS sticky mantém o painel desktop em context
 
 ## Pendência
 
-Adicionar Quem Somos, Empresas, Tutores e CTA como responsabilidades próprias, preservando a jornada como narrativa de transição e evitando abstrações genéricas de seção.
+Adicionar Tutores e CTA como responsabilidades próprias, preservando a jornada como narrativa de transição e evitando abstrações genéricas de seção.
 
 ## Conteúdo institucional da Sprint 4
 
@@ -72,6 +74,10 @@ O ecossistema usa DOM/CSS e `lucide-react`; não existe canvas, Three.js, reques
 O carrossel mantém `activeIndex`, calcula vizinhos com índice modular e renderiza no máximo cinco posições visuais. IDs de conteúdo são as chaves; não há mutação do array, duplicação persistente ou `Math.random()`.
 
 A seção Mentalidade é estruturalmente estática. Seu frame é um `figure` não interativo; a relação com YouTube existe apenas no link explícito e não adiciona recursos externos ao carregamento da página.
+
+Quem Somos usa dados locais tipados no próprio componente porque seus quatro princípios são exclusivos da seção. Desktop combina statement sticky e conteúdo em fluxo; uma única timeline modifica apenas opacity e transform do reveal, do eixo e dos pontos. Abaixo de 901 px e em reduced motion, toda a composição permanece no estado final sem timeline.
+
+Empresas usa `activeId` para selecionar uma das oito marcas e consumir nome, iniciais, setor e accent. Desktop posiciona marcas em um campo controlado; mobile troca por grid. Uma timeline restrita a desktop revela copy, linhas e marcas por opacity e transform, sem loop ou pin. Todos os nomes permanecem no DOM.
 
 ## Hero Pack em produção
 

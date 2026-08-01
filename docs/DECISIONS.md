@@ -293,3 +293,31 @@
 **Trade-offs:** o vídeo não toca dentro da página, mas o fluxo fica mais leve, acessível e coerente. Nenhum recurso do YouTube é carregado antes da decisão explícita de sair para o vídeo.
 
 **Arquivos relacionados:** `src/components/mindset/MindsetSection.tsx`, `src/App.tsx`, `src/index.css`, `docs/plans/009-mindset-founder-story.md`.
+
+## ADR-023 — Quem Somos como ambiente, não catálogo
+
+**Status:** aceita e executada.
+
+**Contexto:** a seção precisava explicar quem ajuda a transformar decisão em caminho sem repetir os nove pilares de Formações, os princípios pessoais de Mentalidade ou recorrer a quatro cards institucionais genéricos.
+
+**Decisão:** organizar Quem Somos como statement assimétrico, contexto institucional e quatro princípios numerados. Um arco incompleto e um eixo progressivo continuam a linguagem espacial do ecossistema sem recriar órbitas. Uma timeline desktop revela o conteúdo e percorre os pontos, sem pin; tablet, mobile e reduced motion permanecem estáticos.
+
+**Alternativas:** quatro cards com ícones; nova órbita interativa; manifesto longo; seção de métricas institucionais.
+
+**Trade-offs:** o conteúdo exige leitura editorial e não oferece interação própria. Em troca, mantém hierarquia, silêncio visual, acessibilidade, baixo custo e distinção narrativa entre decisão, ambiente e histórias.
+
+**Arquivos relacionados:** `src/components/about/AboutSection.tsx`, `src/App.tsx`, `src/index.css`, `docs/plans/010-quem-somos.md`.
+
+## ADR-024 — Empresas como destinos conceituais, não prova social
+
+**Status:** aceita e executada.
+
+**Contexto:** a consequência profissional da jornada precisava ser comunicada sem logo wall, marquee, parceiros inventados ou promessa de contratação. Marcas totalmente passivas perderiam a oportunidade de contextualizar os diferentes ambientes profissionais.
+
+**Decisão:** criar oito identidades fictícias originais, posicionadas em um campo editorial ao redor de “Talento em movimento”. Cada marca é um botão com nome, iniciais, setor e accent; foco, hover ou clique atualizam um único detalhe compartilhado. Mobile exibe grid e setores diretamente. Uma timeline desktop revela conexões e marcas sem pin ou loop.
+
+**Alternativas:** logos reais; parede uniforme; marquee infinito; marcas não interativas; cards de empresas com descrição completa.
+
+**Trade-offs:** a composição demanda disclosure documental e não constitui prova factual de parceria. Em troca, comunica variedade de destinos e preparo para colaboração sem afirmações indevidas ou requests externos.
+
+**Arquivos relacionados:** `src/components/companies/company-data.ts`, `src/components/companies/CompaniesSection.tsx`, `src/App.tsx`, `src/index.css`, `docs/plans/011-empresas.md`.

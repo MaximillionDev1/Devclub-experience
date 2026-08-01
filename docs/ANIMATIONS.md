@@ -85,6 +85,24 @@
 3. Apenas o link possui microtransição de cor e linha; reduced motion remove essa transição.
 4. Conteúdo, princípios e ação permanecem idênticos com ou sem movimento.
 
+## Quem Somos
+
+1. Uma única timeline desktop opera em `min-width: 901px` e `prefers-reduced-motion: no-preference`.
+2. O trigger é a própria seção, de `top 74%` a `bottom 62%`, com scrub 0,45 e sem pin.
+3. Statement e contexto entram por opacity e deslocamento vertical; os quatro princípios acompanham uma linha que cresce entre quatro pontos.
+4. A animação é reversível e recalculada no refresh; `useGSAP`, escopo e `matchMedia().revert()` garantem cleanup.
+5. Tablet, mobile e reduced motion exibem diretamente a composição final, sem depender de JavaScript para compreensão.
+6. A página mantém apenas o pin da Hero; Quem Somos não cria `pin-spacer`.
+
+## Empresas
+
+1. Uma timeline desktop opera em `min-width: 901px` e `prefers-reduced-motion: no-preference`.
+2. O trigger é a própria seção, de `top 76%` a `bottom 62%`, com scrub 0,45 e sem pin.
+3. Copy entra por opacity e deslocamento vertical; três linhas ganham escala horizontal e oito marcas aparecem em ordem deliberada.
+4. Retorno do scroll reverte linha e presença das marcas; seleção de empresa permanece independente da timeline.
+5. Tablet, mobile e reduced motion mostram imediatamente o campo completo ou a grade compacta.
+6. Não há marquee, loop, flutuação, rotação, parallax ou cursor magnético.
+
 ## Story Scroll
 
 Cada etapa deve produzir mudança visual real.

@@ -63,11 +63,11 @@
 
 ## Sprint 4 — Conteúdo institucional
 
-- [ ] Quem somos.
+- [x] Quem somos — ambiente institucional, princípios editoriais e progressão sem novo pin.
 - [x] Formações — ecossistema Full Stack com nove pilares, detalhe compartilhado e composição mobile.
 - [x] Alunos e histórias — sete relatos editoriais fictícios em carrossel acessível.
 - [x] Mentalidade — pausa editorial entre Formações e Alunos com reflexão oficial complementar.
-- [ ] Empresas.
+- [x] Empresas — campo editorial de destinos conceituais, oito marcas fictícias e detalhe acessível.
 - [ ] Tutores.
 - [ ] CTA final.
 - [x] Navegação da Hero conectada a Formações, Alunos e destinos futuros neutros.

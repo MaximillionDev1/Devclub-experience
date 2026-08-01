@@ -39,3 +39,32 @@ A seção Mentalidade foi inspirada na direção editorial fornecida para o víd
 - princípios: romper barreiras autoimpostas, iluminar o trecho visível e manter constância.
 
 O vídeo não é baixado, reproduzido, editado, re-hospedado ou carregado por iframe. A seção contém uma interpretação editorial original e autossuficiente; o link externo é material complementar.
+
+## Quem Somos
+
+O conteúdo institucional consolida somente as premissas aprovadas para esta etapa:
+
+- aprendizado Full Stack estruturado;
+- projetos práticos e portfólio;
+- mentoria e suporte humano;
+- comunidade;
+- preparação profissional;
+- inteligência artificial como ferramenta de trabalho;
+- evolução contínua.
+
+Não são apresentados números de alunos, percentuais de contratação, salários, anos de operação, contagem de mentores ou parcerias empresariais.
+
+## Empresas
+
+As oito identidades exibidas em `src/components/companies/company-data.ts` são fictícias e foram criadas especificamente para a apresentação do concurso:
+
+- Nexo Labs;
+- Atlas Cloud;
+- Mira Finance;
+- Orbe Systems;
+- Vértice Digital;
+- Lumina Health;
+- Norte Commerce;
+- Prisma Data.
+
+Nomes, iniciais, setores e geometrias não representam parceiros de contratação confirmados do DevClub. A composição demonstra a função institucional da seção — conectar preparo e ambientes profissionais possíveis — sem alegar parceria, vaga, contratação ou resultado garantido.
