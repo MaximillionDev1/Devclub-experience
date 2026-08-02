@@ -16,18 +16,23 @@ Projeto independente desenvolvido por **Matheus Vinicius Rodrigues da Silva** pa
 
 > [!IMPORTANT]
 > **Configuração pública antes da publicação**<br>
-> Deploy público: pendente da etapa final de publicação.
+> Deploy público: pendente da etapa final de publicação.<br>
+> Repositório público: pendente; o único token de configuração está no comando de clone e deve ser substituído antes de publicar o README.
 
 ## Preview
 
-![Demonstração da experiência completa do DevClub Experience](docs/images/devclub-experience-demo.gif)
+As capturas públicas ainda integram o checklist final de entrega. Os destinos reservados são:
 
-> Demonstração resumida da experiência narrativa da landing.
+- `docs/images/hero-desktop.webp` — Hero em 1440×900;
+- `docs/images/experience-overview.webp` — visão institucional da experiência;
+- `docs/images/devclub-experience-demo.gif` — demonstração curta opcional.
+
+Nenhum desses caminhos é apresentado como mídia disponível até que a captura seja produzida, otimizada e aprovada.
 
 ## Projeto online
 
 - **Deploy público:** pendente da etapa final de publicação.
-- **Código-fonte:** [github.com/MaximillionDev1/Devclub-experience](https://github.com/MaximillionDev1/Devclub-experience)
+- **Código-fonte:** o remote Git ainda não está configurado neste workspace; a URL deve ser adicionada antes da publicação.
 
 ## Sobre o desafio
 
@@ -39,10 +44,6 @@ Em vez de tratar os requisitos como blocos independentes, este projeto os organi
 
 Um notebook comum funciona como porta de entrada para algo maior. O visitante ocupa o papel de protagonista; a mesa representa sua realidade, o cursor representa decisão e a luz acompanha crescimento. A frase **“Uma decisão muda tudo”** abre uma narrativa em que o scroll deixa de ser apenas navegação e passa a representar participação, conduzindo o visitante de observador a construtor.
 
-![Hero cinematográfica do DevClub Experience em desktop](docs/images/hero-desktop-1440.png)
-
-> Hero cinematográfica construída como porta de entrada da experiência.
-
 As referências foram usadas como filosofias de design, não como layouts a copiar: contenção e clareza da Apple, precisão de produto associada a Vercel e Linear, sensação de travessia de *Interstellar* e refinamento de transições do Framer. Não existe vínculo, endosso ou reprodução direta dessas marcas e obras.
 
 ## Experiência
@@ -53,13 +54,9 @@ As referências foram usadas como filosofias de design, não como layouts a copi
 4. **Mentalidade:** cria uma pausa editorial sobre decidir o próximo passo antes de enxergar todo o caminho.
 5. **Quem Somos:** posiciona o DevClub como ambiente de formação, prática, acompanhamento e evolução.
 6. **Histórias de alunos:** representa diferentes pontos de partida e mudanças de percepção durante o aprendizado.
-7. **Empresas:** apresenta empresas presentes no ecossistema institucional público do DevClub, sem sugerir contratação ou parceria com este projeto.
+7. **Empresas:** traduz preparação profissional em destinos conceituais e contextos de colaboração.
 8. **Tutores:** apresenta mentoria como conversa, revisão e direção, não como entrega de respostas prontas.
 9. **CTA final:** devolve a decisão ao visitante e encerra a experiência com uma passagem luminosa.
-
-![Visão geral da experiência editorial do DevClub Experience](docs/images/experience-overview.png)
-
-> Visão geral da experiência editorial após a Hero.
 
 ## Principais diferenciais
 
@@ -91,7 +88,7 @@ Versões instaladas no lockfile e confirmadas localmente:
 
 ## Arquitetura
 
-Os componentes são agrupados por capítulo narrativo. Dados repetíveis ficam em módulos tipados, o registro de GSAP é centralizado e cada timeline usa `useGSAP`, escopo local e cleanup. No recorte atual desta landing, o sistema visual e as respostas por breakpoint permanecem deliberadamente centralizados no stylesheet principal; é uma organização pragmática para o escopo presente, não uma arquitetura ideal para uma aplicação maior. Imagens geradas são estritamente decorativas: títulos, terminal, controles e conteúdo continuam no DOM. A mídia cinematográfica entra como progressive enhancement sobre um fallback funcional.
+Os componentes são agrupados por capítulo narrativo. Dados repetíveis ficam em módulos tipados, o registro de GSAP é centralizado e cada timeline usa `useGSAP`, escopo local e cleanup. O CSS concentra sistema visual e respostas por breakpoint. Imagens geradas são estritamente decorativas: títulos, terminal, controles e conteúdo continuam no DOM. A mídia cinematográfica entra como progressive enhancement sobre um fallback funcional.
 
 ```text
 src/
@@ -120,7 +117,7 @@ src/
 3. **Plates decorativos:** os ambientes gerados não carregam texto essencial. Terminal, copy e controles são camadas DOM controladas pela aplicação.
 4. **Variantes responsivas:** os masters PNG permanecem no processo criativo; produção recebe AVIF/WebP em 1024, 1440, 1920 e 2560 px.
 5. **Fallback mobile dedicado:** abaixo do gate cinematográfico, uma composição CSS/DOM evita crops instáveis e mantém a narrativa compreensível.
-6. **Reduced motion estático:** quando `prefers-reduced-motion: reduce` está ativo, scrub, pin e loops são removidos; os estados finais permanecem disponíveis sem depender da animação para revelar conteúdo.
+6. **Reduced motion estático:** sem a preferência de movimento, scrub, pin e loops não são necessários para revelar o conteúdo final.
 7. **Experimentos reversíveis:** integrações e gerações que introduziram peso, warnings ou perda de continuidade foram rejeitadas e documentadas, em vez de promovidas apenas porque já haviam consumido esforço.
 
 ## Performance
@@ -156,7 +153,7 @@ A estrutura foi revisada em código e a navegação por teclado foi validada no 
 Parte do conteúdo foi criada especificamente para representar o desafio quando dados reais não estavam disponíveis:
 
 - histórias e nomes de alunos são conceituais e não constituem depoimentos verificados;
-- empresas exibidas foram selecionadas entre os nomes apresentados publicamente pelo DevClub como locais onde alunos atuam; isso não declara parceria com este projeto, vaga ou contratação futura;
+- identidades de empresas são fictícias e não representam parceiros confirmados;
 - perfis de tutores são fictícios e não representam integrantes ou colaboradores documentados do DevClub.
 
 Esses dados dão forma aos requisitos institucionais sem alegar contratação, parceria, resultado financeiro ou disponibilidade individual. As fontes e classificações estão registradas em [`docs/CONTENT-SOURCES.md`](docs/CONTENT-SOURCES.md).
@@ -168,11 +165,13 @@ O CTA de matrícula usa o destino oficial de WhatsApp fornecido e verificado a p
 O repositório possui `package-lock.json`; para uma instalação reproduzível, use `npm ci`.
 
 ```bash
-git clone https://github.com/MaximillionDev1/Devclub-experience.git
-cd Devclub-experience
+git clone <URL_DO_REPOSITORIO>
+cd devclub-experience
 npm ci
 npm run dev
 ```
+
+Antes de publicar este README, substitua o token do comando de clone pela URL real configurada no remote Git.
 
 Para executar os gates técnicos:
 
@@ -215,7 +214,7 @@ npm run build
 
 ## Processo criativo e uso de IA
 
-Ferramentas de IA participaram de um fluxo assistido de ideação, produção visual, implementação, revisão, auditoria e documentação. Codex apoiou a implementação e as revisões; os três plates finais da Hero foram gerados com GPT Image 2 por meio do Higgsfield. Outros experimentos de imagem e vídeo foram avaliados e rejeitados, sem integração no produto final.
+Ferramentas de IA participaram de um fluxo assistido de ideação, produção visual, implementação, revisão, auditoria e documentação. Codex apoiou a implementação e as revisões; GPT Image 2 foi usado na produção dos três plates finais da Hero. Higgsfield foi avaliado em uma exploração anterior que não foi promovida ao produto final.
 
 As decisões não foram aceitas automaticamente. Variações e integrações foram comparadas com o briefing, e experimentos que reduziram continuidade, performance ou estabilidade foram descartados. A integração final foi submetida a lint, typecheck, build e testes de navegador. O histórico em `creative/` registra prompts, gates e rejeições sem apresentar a saída de IA como fonte incontestável.
 
@@ -223,12 +222,12 @@ As decisões não foram aceitas automaticamente. Variações e integrações for
 
 - QA visual com reduced motion ativo e zoom ampliado ainda pendente;
 - Core Web Vitals em produção e perfil em dispositivo real ainda não medidos;
-- histórias de alunos e perfis de tutores ainda usam conteúdo conceitual que deve ser substituído por dados verificados em uma aplicação oficial;
+- conteúdo conceitual deve ser substituído por dados institucionais verificados em uma aplicação oficial;
 - embora o CTA use um destino verificado, este projeto permanece independente e não oficial.
 
 ## Próximos passos
 
-- substituir histórias de alunos e perfis de tutores conceituais por dados institucionais verificados;
+- substituir conteúdo conceitual por dados institucionais verificados;
 - adicionar testes automatizados para interações e regressões críticas;
 - modularizar o stylesheet global se o projeto crescer além desta landing;
 - capturar e documentar métricas de performance no deploy final.
