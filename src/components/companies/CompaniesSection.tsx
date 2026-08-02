@@ -54,7 +54,9 @@ export function CompaniesSection() {
       <div className="companies-layout">
         <header className="companies-editorial" data-companies-reveal>
           <p>Onde o talento chega</p>
-          <h2 id="companies-title">Conhecimento ganha valor quando começa a contribuir.</h2>
+          <h2 id="companies-title">
+            Conhecimento ganha valor quando começa <span className="text-nowrap">a contribuir.</span>
+          </h2>
           <p>
             Projetos, prática e preparação profissional aproximam novos desenvolvedores
             dos ambientes em que produtos reais são construídos.

@@ -2,7 +2,7 @@
 
 ## Status
 
-Sprint 5 em andamento: MS-01 Motion Direction implementado sobre a experiência completa, sem novas animações, seções, assets ou alterações de layout e copy.
+Sprint 5 em andamento: Motion Direction e o recorte aprovado de Typography Direction e Spatial Rhythm estão implementados, sem novas animações, seções, assets ou alterações de copy.
 
 ## Validações confirmadas
 
@@ -17,6 +17,8 @@ Sprint 5 em andamento: MS-01 Motion Direction implementado sobre a experiência 
 ## Fase atual
 
 Sprint 5 — a linguagem de movimento foi consolidada. A Hero encerra sua entrada temporal no primeiro progresso real do scroll antes de a timeline cinematográfica assumir os elementos compartilhados. Scroll suave do navegador foi removido; motion editorial passa a iniciar em 1024 px; Tutores desloca conteúdo apenas por transform; e a baseline editorial foi documentada com exceções justificadas.
+
+MS-03 consolidou envelopes immersive, compact e standard; limitou padding institucional em telas até 720 px de altura; reduziu somente a duração espacial do Story Scroll em baixa altura; removeu a dupla pausa antes de Formações; e aproximou os sistemas de Formações/Students de seus leads. Hero, timeline, seis passos, tipografia, CTA/Footer e sistemas internos das seções permaneceram intactos. SR-05, SR-06, SR-07, SR-09 e SR-10 seguem apenas documentados.
 
 A seção Mentalidade usa um artefato DOM/CSS do mesmo universo da Hero, sem thumbnail, player, retrato, iframe ou recurso remoto. O vídeo oficial aparece somente como link externo secundário após o conteúdo completo no DOM.
 
@@ -36,7 +38,7 @@ Tutores usa cinco perfis fictícios e um único painel compartilhado. A seleçã
 
 A matriz solicitada foi repetida para Tutores em 1440×900, 1366×768, 1280×720, 1024×768, 768×1024, 430×932, 390×844, 360×640, 844×390 e 1280×600. Os cinco controles mantêm targets de 88–92 px, o perfil permanece legível, não há overflow, recurso remoto ou novo pin. Âncora, seleção repetida, Tab e reverse scroll foram confirmados.
 
-O CTA final usa “A decisão continua sendo sua.”, uma passagem luminosa DOM/CSS e duas ações. Como não existe URL institucional verificada no repositório, “Conhecer o DevClub” usa temporariamente a constante documentada `DEVCLUB_DESTINATION_PLACEHOLDER` com destino interno `#quem-somos`; “Rever a jornada” retorna a `#top`. Um footer mínimo encerra a página sem sitemap ou links inventados.
+O CTA final usa “A decisão continua sendo sua.”, uma passagem luminosa DOM/CSS e duas ações. “Quero me matricular” abre em nova aba o contato de matrícula no WhatsApp fornecido e verificado para esta etapa; “Rever a jornada” retorna nativamente a `#top`. A passagem incorpora a assinatura discreta `DEVCLUB //` e a frase “Onde começa o próximo passo.”, sem carregar o JPEG de referência, criar animação ou alterar sua geometria. Um footer mínimo mantém explícito o contexto de concurso.
 
 A matriz solicitada foi repetida para o CTA em 1440×900, 1366×768, 1280×720, 1024×768, 768×1024, 430×932, 390×844, 360×640, 844×390 e 1280×600. Links mantêm targets acima de 52 px, não há overflow, recurso remoto, erro da aplicação ou pin adicional. As duas ações, foco sequencial e reverse scroll foram confirmados.
 
@@ -84,10 +86,19 @@ O blueprint cinematográfico em `docs/plans/006-hero-cinematic-blueprint.md` foi
 
 ## Próxima etapa
 
-1. Iniciar MS-02 — direção tipográfica.
+1. Iniciar MS-03 — Spatial Rhythm, auditando intervalos e densidade antes de qualquer alteração.
 2. Substituir o destino provisório do CTA quando uma URL institucional oficial for fornecida.
 3. Validar visualmente a experiência completa com `prefers-reduced-motion: reduce` efetivamente ativo.
 4. Medir LCP, CLS e bytes em ambiente de produção e dispositivo real.
+
+## Marco — MS-02 tipografia aplicada no recorte aprovado (01/08/2026)
+
+- TY-01, TY-02, TY-04, TY-05 e TY-09 implementados sem troca de fonte, copy, layout, componentes ou dependências;
+- Hero preservada, com mudança limitada ao piso de 10 px da navegação em mobile e baixa altura;
+- H2 editoriais consolidados em uma escala responsiva de 32–42 px e revisados sem `<br>`;
+- microcopy essencial e nomes/ações interativos tornaram-se legíveis sem promover anotações decorativas;
+- dez viewports revalidados sem overflow horizontal ou ausência de seções;
+- TY-03, TY-07, TY-08, TY-10, TY-11 e TY-12 seguem apenas documentados.
 
 ## Problemas conhecidos
 

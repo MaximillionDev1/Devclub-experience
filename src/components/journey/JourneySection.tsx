@@ -78,7 +78,7 @@ export function JourneySection() {
         </p>
         <h2
           id="journey-title"
-          className="mt-5 max-w-4xl text-balance text-[clamp(2.25rem,7vw,5.5rem)] leading-[0.98] font-medium tracking-[-0.045em] text-white/90"
+          className="mt-5 max-w-4xl text-balance text-[var(--type-editorial-h2)] leading-[0.98] font-medium tracking-[-0.045em] text-white/90"
         >
           Construir muda a forma de enxergar possibilidades.
         </h2>
@@ -144,7 +144,7 @@ export function JourneySection() {
 
       <div
         aria-hidden="true"
-        className="h-[24svh] min-h-32 bg-linear-to-b from-transparent to-[#07090d]"
+        className="story-transition-tail h-[18svh] min-h-24 bg-linear-to-b from-transparent to-[#07090d]"
       />
     </section>
   );

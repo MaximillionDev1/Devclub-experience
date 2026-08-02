@@ -83,6 +83,8 @@ Eles não representam profissionais confirmados, integrantes ou colaboradores do
 
 ## CTA final
 
-Não foi encontrada uma URL institucional oficial do DevClub nas fontes de verdade do projeto. Por isso, `DEVCLUB_DESTINATION_PLACEHOLDER` aponta temporariamente para a seção interna `#quem-somos`. O destino não representa link de inscrição, venda ou matrícula e deve ser substituído somente quando uma URL oficial for fornecida e validada.
+O contato externo de matrícula foi fornecido e verificado para esta etapa a partir do fluxo institucional do DevClub: `https://api.whatsapp.com/send/?phone=5516990482444&text=quero%20me%20matricular&type=phone_number&app_absent=0`. A ação inicia uma conversa no WhatsApp; não representa matrícula garantida, compra confirmada, acesso imediato ou garantia de vaga.
+
+A referência oficial de logo fornecida para esta tarefa foi usada para confirmar a identidade da assinatura da passagem final. Como o JPEG possui fundo incorporado e grande área de canvas, a integração usa o fallback DOM estabelecido `DEVCLUB //`, sem redesenhar, recortar ou incluir o arquivo no bundle.
 
 A copy final retoma as ideias editoriais já aprovadas — decisão, próximo passo e agência do visitante — sem acrescentar promessa de emprego, resultado financeiro, urgência ou escassez.

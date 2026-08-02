@@ -70,6 +70,7 @@
 - [x] Empresas — campo editorial de destinos conceituais, oito marcas fictícias e detalhe acessível.
 - [x] Tutores — conversa editorial com cinco perfis fictícios e seleção acessível.
 - [x] CTA final — fechamento narrativo, passagem luminosa e ações acessíveis.
+- [x] CTA final — contato de matrícula verificado e assinatura DevClub integrados; placeholder removido.
 - [x] Navegação da Hero conectada a Formações, Alunos e destinos futuros neutros.
 - [x] Reduced motion implementado para órbitas e transições do carrossel.
 
@@ -77,7 +78,12 @@
 
 - [x] MS-01 — auditoria completa de movimento documentada.
 - [x] MS-01 — refinamentos aprovados de ownership, scroll, breakpoint, Tutor, baseline e `will-change` implementados.
-- [ ] MS-02 — direção tipográfica.
+- [x] MS-02 — auditoria de direção tipográfica.
+- [x] MS-02 — escopo aprovado TY-01, TY-02, TY-04, TY-05 e TY-09 implementado.
+- [ ] MS-02 — TY-03, TY-07, TY-08, TY-10, TY-11 e TY-12 permanecem documentados e adiados.
+- [x] MS-03 — auditoria de ritmo espacial documentada.
+- [x] MS-03 — SR-01, SR-02, SR-03 em baixa altura, SR-04 e SR-08 implementados.
+- [ ] MS-03 — SR-05, SR-06, SR-07, SR-09 e SR-10 permanecem documentados e adiados.
 
 ### Histórico de assets
 

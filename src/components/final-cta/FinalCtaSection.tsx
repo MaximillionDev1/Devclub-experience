@@ -1,9 +1,6 @@
 import { useRef } from 'react';
 import { gsap, useGSAP } from '../../lib/gsap';
 
-// Placeholder interno até que uma URL institucional oficial seja validada.
-const DEVCLUB_DESTINATION_PLACEHOLDER = '#quem-somos';
-
 export function FinalCtaSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const currentYear = new Date().getFullYear();
@@ -66,12 +63,16 @@ export function FinalCtaSection() {
             </p>
             <div className="final-cta-actions" data-final-reveal>
               <a
-                href={DEVCLUB_DESTINATION_PLACEHOLDER}
+                href="https://api.whatsapp.com/send/?phone=5516990482444&text=quero%20me%20matricular&type=phone_number&app_absent=0"
                 className="final-cta-primary"
-                data-destination-status="placeholder"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Conhecer o DevClub
+                Quero me matricular
                 <span aria-hidden="true">→</span>
+                <span className="sr-only">
+                  Abre uma conversa com o DevClub no WhatsApp em uma nova aba.
+                </span>
               </a>
               <a href="#top" className="final-cta-secondary">
                 Rever a jornada
@@ -82,18 +83,24 @@ export function FinalCtaSection() {
             </p>
           </div>
 
-          <div className="final-doorway" data-final-doorway aria-hidden="true">
-            <div className="final-doorway-light" />
-            <div className="final-doorway-frame">
+          <div className="final-doorway" data-final-doorway>
+            <div className="final-doorway-light" aria-hidden="true" />
+            <div className="final-doorway-frame" aria-hidden="true">
               <span />
               <span />
               <span />
             </div>
-            <div className="final-doorway-threshold" data-final-threshold />
-            <p>
-              <span>path / open</span>
-              <strong>next.step</strong>
-            </p>
+            <div
+              className="final-doorway-threshold"
+              data-final-threshold
+              aria-hidden="true"
+            />
+            <div className="final-doorway-signature">
+              <strong aria-hidden="true">
+                DEVCLUB <span>//</span>
+              </strong>
+              <p>Onde começa o próximo passo.</p>
+            </div>
           </div>
         </div>
       </section>

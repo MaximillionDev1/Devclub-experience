@@ -65,9 +65,21 @@ O Story Scroll não adiciona pin: CSS sticky mantém o painel desktop em context
 
 As timelines editoriais de Quem Somos, Empresas, Tutores e CTA também começam em 1024 px. A base é `top 76%` → `bottom 64%`, scrub 0,45, `power1.out`, reveal de até 18 px e stagger 0,12/0,14/0,16 conforme texto, estrutura ou densidade; Quem Somos e CTA conservam envelopes próprios documentados em `docs/ANIMATIONS.md`. Anchors usam comportamento nativo instantâneo, sem smooth scroll do navegador ou biblioteca concorrente.
 
-## Pendência
+## Tipografia
 
-Substituir a constante de destino provisório do CTA quando uma URL institucional oficial for validada.
+A Hero mantém escala própria e constitui o ápice narrativo. Os H2 de Story Scroll, Formações, Mentalidade, Quem Somos, Empresas, Tutores e CTA consomem `--type-editorial-h2`, com faixa responsiva de 32–42 px. Ações e nomes interativos consomem `--type-interactive` em 13 px; peso e tracking continuam locais porque sua consolidação global não integra o escopo aprovado de MS-02.
+
+Microcopy é classificada por função: contexto necessário à compreensão recebe piso e contraste legíveis; coordenadas, anotações de sistema e inscrições `aria-hidden` continuam decorativas e subordinadas. Wrapping editorial é resolvido por largura máxima e `text-wrap`, sem quebras manuais.
+
+## Ritmo espacial
+
+Os envelopes institucionais usam três papéis CSS: immersive para Formações/Students, compact para Mentalidade e standard para Quem Somos/Companies/Tutores. Até 720 px de altura, os mesmos papéis recebem tetos menores. O CTA conserva seu envelope closing anterior.
+
+Story Scroll preserva arquitetura e motion; apenas seu espaço físico é menor em baixa altura. A cauda de transição continua sendo um gradient sem conteúdo e negocia a entrada de Formações. Em desktop, Formações e Students usam uma faixa mais curta entre lead e sistema. Os detalhes ficam registrados em `docs/plans/016-spatial-rhythm.md`.
+
+## Destino final do CTA
+
+O CTA primário usa diretamente o contato institucional de matrícula fornecido para esta etapa, como link externo sem estado ou navegação programática. A identidade da passagem é DOM/CSS (`DEVCLUB //`); o JPEG oficial serviu como referência, mas não integra o grafo de assets porque seu fundo incorporado exigiria edição destrutiva para uma aplicação monocromática limpa.
 
 ## Conteúdo institucional da Sprint 4
 
@@ -83,7 +95,7 @@ Empresas usa `activeId` para selecionar uma das oito marcas e consumir nome, ini
 
 Tutores usa `activeId` para selecionar uma de cinco vozes e renderizar um único perfil compartilhado. Botões com `aria-pressed` preservam interação nativa; desktop usa sequência vertical conectada por uma linha de conversa e mobile usa lista horizontal. Uma timeline restrita a desktop revela copy, eixo e vozes por opacity e transform, sem loop ou pin.
 
-O CTA final não possui estado React. Dois links semânticos usam destinos internos enquanto a URL institucional não existe: `#quem-somos` como fallback primário documentado e `#top` como retorno. Uma timeline desktop revela copy, ações e passagem por opacity e transform, sem pin; mobile e reduced motion são estáticos.
+O CTA final não possui estado React. A ação primária é um link externo direto para o contato verificado de matrícula no WhatsApp; `#top` permanece como retorno interno da ação secundária. Uma timeline desktop revela copy, ações e passagem por opacity e transform, sem pin; mobile e reduced motion são estáticos.
 
 ## Hero Pack em produção
 

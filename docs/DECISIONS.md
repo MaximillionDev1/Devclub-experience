@@ -140,7 +140,7 @@
 
 ## ADR-013 — Rejeição da integração fotográfica experimental para produção
 
-**Status:** aceita e executada.
+**Status:** supersedida pela ADR-029 quanto ao destino e à identidade da passagem.
 
 **Contexto:** HERO-02-v01 foi integrado experimentalmente somente a partir de 1024 px e validado nas nove dimensões-alvo. O alinhamento visual, o fallback móvel e o resize contínuo ficaram estáveis, mas o build ainda entrega o PNG bruto de 2.688,17 kB, a composição fotográfica registra warnings GSAP por ausência de `[data-desk]` e o ambiente não permitiu ativar `prefers-reduced-motion: reduce` para o gate visual obrigatório.
 
@@ -342,11 +342,11 @@
 
 **Contexto:** o fechamento precisava convidar à ação e concluir a ideia da Hero, mas o repositório não possui uma URL institucional oficial verificada do DevClub.
 
-**Decisão:** usar “A decisão continua sendo sua.” e representar o próximo caminho por uma única passagem luminosa DOM/CSS. A ação primária usa a constante explicitamente provisória `DEVCLUB_DESTINATION_PLACEHOLDER`, apontando para `#quem-somos` até existir URL oficial; a secundária retorna a `#top`. Um footer mínimo encerra a página.
+**Decisão:** usar “A decisão continua sendo sua.” e representar o próximo caminho por uma única passagem luminosa DOM/CSS. A ação secundária retorna a `#top`, e um footer mínimo encerra a página. O destino primário originalmente temporário foi removido quando o contato verificado passou a integrar a ADR-029.
 
 **Alternativas:** inventar URL externa; omitir ação primária; usar banner promocional; repetir terminal ou órbitas; criar footer completo.
 
-**Trade-offs:** o botão primário ainda não conduz a uma página de conversão. Em troca, permanece funcional, honesto, semanticamente correto e pronto para uma substituição localizada.
+**Trade-offs:** a primeira versão preservou honestidade enquanto não havia contato fornecido; essa limitação deixou de existir com a decisão posterior.
 
 **Arquivos relacionados:** `src/components/final-cta/FinalCtaSection.tsx`, `src/App.tsx`, `src/index.css`, `docs/plans/013-final-cta.md`.
 
@@ -363,3 +363,43 @@
 **Trade-offs:** anchors deixam de ter interpolação automática e tablets até 1023 px usam composição editorial estática. Em troca, o scroll fica previsível, o breakpoint se torna coerente, a interação de Tutores não recalcula layout e a gramática permanece pequena sem novas animações.
 
 **Arquivos relacionados:** `src/components/hero/HeroScene.tsx`, `src/components/about/AboutSection.tsx`, `src/components/companies/CompaniesSection.tsx`, `src/components/tutors/TutorsSection.tsx`, `src/components/final-cta/FinalCtaSection.tsx`, `src/index.css`, `docs/ANIMATIONS.md`, `docs/plans/014-motion-direction.md`.
+
+## ADR-028 — Hierarquia tipográfica em dois níveis e microcopy por função
+
+**Status:** aceita e executada no recorte aprovado.
+
+**Contexto:** a auditoria MS-02 demonstrou competição entre H2 institucionais, leitura insuficiente na navegação compacta da Hero e microcopy essencial visualmente próxima de anotações decorativas.
+
+**Decisão:** manter a Hero como ápice e consolidar todos os H2 editoriais em `--type-editorial-h2` (32–42 px); estabelecer 10 px como piso da navegação mobile/baixa altura; elevar apenas textos necessários à compreensão; usar `--type-interactive` em 13 px para ações e nomes selecionáveis; corrigir órfãos por largura e wrapping, sem alterar copy ou inserir `<br>`.
+
+**Trade-offs:** a escala editorial torna-se mais contida e algumas frases usam estratégias distintas de wrapping para respeitar sua sintaxe. Em troca, a hierarquia passa a ser previsível, a Hero recupera primazia e conteúdos funcionais deixam de depender de tamanhos sublegíveis.
+
+**Fora da decisão:** família tipográfica, pesos, tracking global, terminal, serif editorial e itens TY-03/TY-07/TY-08/TY-10/TY-11/TY-12.
+
+**Arquivos relacionados:** `src/index.css`, `src/components/journey/JourneySection.tsx`, `src/components/companies/CompaniesSection.tsx`, `docs/plans/015-typography-direction.md`.
+
+## ADR-029 — Contato verificado e assinatura DOM no CTA final
+
+**Status:** aceita e executada.
+
+**Contexto:** o destino provisório `#quem-somos` não representava o próximo passo após a jornada. A tarefa forneceu um contato de matrícula verificado e um JPEG oficial de logo cujo fundo e canvas não permitem integração monocromática limpa sem edição destrutiva.
+
+**Decisão:** substituir o placeholder pelo link externo exato do WhatsApp, com label “Quero me matricular”, nova aba e indicação acessível. Substituir o marcador genérico da passagem pelo fallback legítimo `DEVCLUB //` em DOM e uma única frase editorial. Não adicionar o JPEG ao bundle.
+
+**Trade-offs:** a passagem não exibe o símbolo completo do logo. Em troca, preserva a paleta, evita um retângulo de fundo ou edição não autorizada e mantém a marca reconhecível, secundária e acessível.
+
+**Arquivos relacionados:** `src/components/final-cta/FinalCtaSection.tsx`, `src/index.css`, `docs/CONTENT-SOURCES.md`, `docs/plans/013-final-cta.md`.
+
+## ADR-030 — Envelopes espaciais por papel com calibração de baixa altura
+
+**Status:** aceita e executada no escopo reduzido.
+
+**Contexto:** a auditoria MS-03 encontrou paddings verticais dirigidos por largura, transições que somavam duas pausas e duração excessiva do Story Scroll em desktops baixos.
+
+**Decisão:** adotar papéis immersive, compact e standard para envelopes institucionais; limitar esses envelopes até 720 px de altura; reduzir somente o espaço físico, não a narrativa, do Story Scroll nessa faixa; encurtar sua cauda; e aproximar Formações/Students de seus leads em desktop. O CTA mantém seu envelope anterior.
+
+**Trade-offs:** a página fica mais curta e capítulos relacionados entram em contexto mais cedo, mantendo diferenças entre papéis. A implementação adiciona uma media query de altura, mas não cria breakpoint de motion, componente, timeline ou dependência.
+
+**Fora da decisão:** SR-05, SR-06, SR-07, SR-09, SR-10, Hero, tipografia, copy, composição, âncoras e sistemas internos.
+
+**Arquivos relacionados:** `src/index.css`, `src/components/journey/JourneySection.tsx`, `docs/plans/016-spatial-rhythm.md`.

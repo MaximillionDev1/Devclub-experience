@@ -8,7 +8,7 @@ Encerrar a experiência retomando a decisão apresentada na Hero e convidar o vi
 
 - O fluxo termina em Tutores seguido por uma continuação neutra sem âncora.
 - A Hero possui `id="top"`, disponível para a ação secundária.
-- Não existe URL institucional oficial do DevClub verificada no repositório ou na documentação.
+- O refinamento final recebeu um contato institucional de matrícula verificado e uma referência oficial de logo.
 - React 19, TypeScript 6, GSAP e `@gsap/react` atendem à implementação sem dependência adicional.
 
 ## Escopo
@@ -17,7 +17,7 @@ Entra:
 
 - seção semântica `id="comece"` após Tutores;
 - statement final, apoio curto, ação primária e ação secundária;
-- constante de destino primário explicitamente marcada como placeholder;
+- ação primária externa para o contato verificado de matrícula;
 - passagem luminosa construída em DOM/CSS como único motivo visual;
 - uma entrada contida, sem pin ou loop;
 - footer mínimo com nome do projeto, contexto do concurso e ano atual;
@@ -40,9 +40,10 @@ Não entra:
 ## Decisões
 
 - Usar “A decisão continua sendo sua.” porque devolve agência ao visitante e fecha diretamente a ideia central da Hero.
-- Enquanto não houver URL oficial validada, `DEVCLUB_DESTINATION_PLACEHOLDER` aponta internamente para `#quem-somos`; não abre nova aba nem simula conversão.
+- “Quero me matricular” abre o contato verificado do DevClub no WhatsApp em nova aba, com comportamento comunicado no nome acessível.
 - A ação secundária “Rever a jornada” usa `#top` e scroll nativo.
 - A passagem luminosa é o único motivo visual: um contorno aberto com luz azul contida e calor lateral.
+- A marca usa a assinatura DOM `DEVCLUB //`, confirmada pela referência oficial fornecida. O JPEG não entra no bundle porque seu fundo e canvas inviabilizam tratamento monocromático limpo sem edição destrutiva.
 - Uma timeline revela texto, ações e passagem no desktop, sem pin. Mobile e reduced motion mostram o estado final.
 
 ## Etapas
@@ -77,7 +78,7 @@ Não entra:
 
 - A única URL oficial registrada é a do vídeo em Mentalidade; não há destino institucional validado para o CTA.
 - A matriz confirmou links com 52–54,78 px de altura, zero overflow, passagem proporcional e somente o pin preexistente da Hero nas dez dimensões.
-- A ação primária chegou a `#quem-somos`; a secundária restaurou `#top`, incluindo o estado pinado da Hero.
+- A validação inicial confirmou os dois destinos então existentes; o refinamento final substituiu integralmente o destino temporário pelo contato externo verificado, mantendo `#top` na ação secundária.
 - A timeline respondeu ao reverse scroll reduzindo presença do headline, escala da passagem e linha de limiar.
 - O console da aplicação permaneceu sem warnings ou erros; recursos remotos do CTA permaneceram ausentes.
 - O navegador não expõe emulação de `prefers-reduced-motion`; o fallback foi revisado no código, mas o teste visual com a preferência ativa permanece pendente.
@@ -86,3 +87,12 @@ Não entra:
 ## Resultado
 
 O CTA final substituiu a continuação provisória depois de Tutores. Statement, ações, passagem luminosa e footer encerram a narrativa sem pressão comercial, URL inventada, mídia ou dependência. Desktop, mobile, teclado, dois destinos, reverse scroll e dez viewports foram aprovados sem overflow, request remoto, erro da aplicação ou novo pin.
+
+## Refinamento final — 01/08/2026
+
+- placeholder interno e seus metadados removidos por completo;
+- destino primário substituído pelo contato verificado de matrícula no WhatsApp;
+- label alterado para “Quero me matricular”, com nova aba e indicação acessível;
+- marcador `PATH / OPEN · NEXT.STEP` substituído por `DEVCLUB //` e “Onde começa o próximo passo.”;
+- composição, luz, geometria, timing, ação secundária e footer preservados;
+- nenhum asset, seção, dependência, timeline ou loop adicionado.
