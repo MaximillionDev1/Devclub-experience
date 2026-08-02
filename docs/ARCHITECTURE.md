@@ -22,7 +22,7 @@
 - `src/components/ui/` é o diretório único de componentes reutilizáveis compostos; não há shadcn nem alias novo.
 - `src/components/mindset/MindsetSection.tsx` contém statement, três princípios, artefato cinematográfico DOM/CSS e link externo oficial; não cria player ou estado de vídeo.
 - `src/components/about/AboutSection.tsx` apresenta o ambiente institucional por meio de contexto, quatro princípios e uma progressão visual desktop com GSAP/ScrollTrigger sem pin.
-- `src/components/companies/company-data.ts` contém oito marcas fictícias tipadas; `CompaniesSection.tsx` controla o campo editorial, seleção compartilhada e reveal desktop sem pin.
+- `src/components/companies/company-data.ts` contém oito empresas da apresentação institucional pública do DevClub em dados tipados; `CompaniesSection.tsx` controla o ticker editorial, seleção compartilhada e reveal desktop sem pin.
 - `src/components/tutors/tutor-data.ts` contém cinco perfis fictícios tipados; `TutorsSection.tsx` controla o seletor de vozes, perfil compartilhado e entrada desktop sem pin.
 - `src/components/final-cta/FinalCtaSection.tsx` encerra a narrativa, contém as duas ações, a passagem luminosa e o footer mínimo.
 
@@ -91,7 +91,7 @@ A seção Mentalidade é estruturalmente estática. Seu frame é um `figure` nã
 
 Quem Somos usa dados locais tipados no próprio componente porque seus quatro princípios são exclusivos da seção. Desktop combina statement sticky e conteúdo em fluxo; uma única timeline modifica apenas opacity e transform do reveal, do eixo e dos pontos. Abaixo de 1024 px e em reduced motion, toda a composição permanece no estado final sem timeline.
 
-Empresas usa `activeId` para selecionar uma das oito marcas e consumir nome, iniciais, setor e accent. Desktop posiciona marcas em um campo controlado; mobile troca por grid. Uma timeline restrita a desktop revela copy, linhas e marcas por opacity e transform, sem loop ou pin. Todos os nomes permanecem no DOM.
+Empresas usa `activeId` para selecionar uma das oito organizações e consumir nome e setor. Desktop apresenta um ticker CSS de 76 segundos composto por uma sequência interativa e uma cópia visual `aria-hidden`, sem botões duplicados na árvore acessível. A timeline GSAP restrita a desktop revela apenas os blocos editoriais, sem controlar o loop e sem pin. Abaixo de 1024 px, e em reduced motion, a cópia é removida do layout, o movimento automático não existe e o conjunto real funciona como lista horizontal de scroll nativo.
 
 Tutores usa `activeId` para selecionar uma de cinco vozes e renderizar um único perfil compartilhado. Botões com `aria-pressed` preservam interação nativa; desktop usa sequência vertical conectada por uma linha de conversa e mobile usa lista horizontal. Uma timeline restrita a desktop revela copy, eixo e vozes por opacity e transform, sem loop ou pin.
 

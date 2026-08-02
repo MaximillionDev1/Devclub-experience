@@ -97,7 +97,7 @@ export const formationPillars = [
     id: 'carreira',
     title: 'Preparação para Carreira',
     shortLabel: 'Carreira',
-    description: 'Portfólio, LinkedIn, entrevistas e o ecossistema ClubJobs aproximam aprendizado e oportunidades.',
+    description: 'Portfólio, LinkedIn, entrevistas e o ClubJobs, como parte do ecossistema de oportunidades do DevClub, aproximam aprendizado e mercado.',
     outcome: 'Comunicar suas habilidades e se preparar para processos seletivos.',
     orbit: 'outer',
     icon: BriefcaseBusiness,
@@ -114,4 +114,3 @@ export const formationPillars = [
     accent: 'neutral',
   },
 ] as const satisfies readonly FormationPillar[];
-

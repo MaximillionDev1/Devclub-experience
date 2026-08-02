@@ -56,18 +56,26 @@ Não são apresentados números de alunos, percentuais de contratação, salári
 
 ## Empresas
 
-As oito identidades exibidas em `src/components/companies/company-data.ts` são fictícias e foram criadas especificamente para a apresentação do concurso:
+As oito empresas exibidas em `src/components/companies/company-data.ts` foram selecionadas entre os nomes apresentados na seção pública “Nossos alunos trabalham em” do site institucional do DevClub:
 
-- Nexo Labs;
-- Atlas Cloud;
-- Mira Finance;
-- Orbe Systems;
-- Vértice Digital;
-- Lumina Health;
-- Norte Commerce;
-- Prisma Data.
+- Accenture;
+- Avanade;
+- Bradesco;
+- BTG Pactual;
+- Capgemini;
+- Compass UOL;
+- IBM;
+- iFood.
 
-Nomes, iniciais, setores e geometrias não representam parceiros de contratação confirmados do DevClub. A composição demonstra a função institucional da seção — conectar preparo e ambientes profissionais possíveis — sem alegar parceria, vaga, contratação ou resultado garantido.
+A presença desses nomes reproduz apenas o contexto institucional público de empresas em que alunos são apresentados como atuantes. Não declara relação direta com este projeto, parceria comercial, vaga disponível, contratação futura ou resultado garantido. Iniciais, classificações editoriais de setor, accents e geometrias são recursos locais da interface e não reproduzem identidades visuais oficiais.
+
+Fonte oficial consultada em 02/08/2026: [página institucional do DevClub](https://devclub.com.br/), seção “Nossos alunos trabalham em”.
+
+## ClubJobs
+
+O ClubJobs é apresentado neste projeto como parte do ecossistema de oportunidades do DevClub, conectando talentos de programação e IA, empresas e vagas. Sua menção contextualiza preparação e mercado; não promete emprego, processo seletivo, contratação ou disponibilidade permanente de oportunidades.
+
+Fonte oficial consultada em 02/08/2026: [ClubJobs](https://vagas.devclub.com.br/).
 
 ## Tutores
 

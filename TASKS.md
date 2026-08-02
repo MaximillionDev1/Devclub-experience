@@ -67,7 +67,7 @@
 - [x] Formações — ecossistema Full Stack com nove pilares, detalhe compartilhado e composição mobile.
 - [x] Alunos e histórias — sete relatos editoriais fictícios em carrossel acessível.
 - [x] Mentalidade — pausa editorial entre Formações e Alunos com reflexão oficial complementar.
-- [x] Empresas — campo editorial de destinos conceituais, oito marcas fictícias e detalhe acessível.
+- [x] Empresas — oito organizações verificadas, detalhe compartilhado e disclosure institucional.
 - [x] Tutores — conversa editorial com cinco perfis fictícios e seleção acessível.
 - [x] CTA final — fechamento narrativo, passagem luminosa e ações acessíveis.
 - [x] CTA final — contato de matrícula verificado e assinatura DevClub integrados; placeholder removido.
@@ -84,6 +84,10 @@
 - [x] MS-03 — auditoria de ritmo espacial documentada.
 - [x] MS-03 — SR-01, SR-02, SR-03 em baixa altura, SR-04 e SR-08 implementados.
 - [ ] MS-03 — SR-05, SR-06, SR-07, SR-09 e SR-10 permanecem documentados e adiados.
+- [x] MS-04 — auditoria de direção de luz e continuidade cinematográfica documentada.
+- [ ] MS-04 — LD-01 permanece documentado como POLISH opcional; nenhuma implementação autorizada.
+- [x] MS-05 — acurácia institucional de Quem Somos, Empresas e ClubJobs alinhada a fontes públicas.
+- [x] Empresas — campo radial substituído por ticker editorial responsivo, acessível e sem logos.
 
 ### Histórico de assets
 
@@ -125,7 +129,17 @@
 - [ ] Performance.
 - [ ] Auditoria técnica.
 - [ ] Documentação.
-- [ ] README.
+- [x] README público definitivo.
 - [ ] Deploy.
 - [ ] Apresentação.
 - [ ] E-mail de entrega.
+
+### Capturas públicas pendentes
+
+- [ ] Hero desktop em 1440×900.
+- [ ] Ecossistema de Formação Full Stack.
+- [ ] Uma seção institucional em composição split.
+- [ ] Carrossel de histórias de alunos.
+- [ ] Hero/fallback mobile.
+- [ ] CTA final.
+- [ ] GIF ou vídeo curto da experiência completa, otimizado para apresentação pública.

@@ -2,18 +2,15 @@ export type CompanyMark = {
   id: string;
   name: string;
   sector: string;
-  initials: string;
-  accent: 'blue' | 'green' | 'violet' | 'neutral';
 };
 
 export const companyMarks = [
-  { id: 'nexo-labs', name: 'Nexo Labs', sector: 'Produtos digitais', initials: 'NX', accent: 'blue' },
-  { id: 'atlas-cloud', name: 'Atlas Cloud', sector: 'Infraestrutura em nuvem', initials: 'AC', accent: 'neutral' },
-  { id: 'mira-finance', name: 'Mira Finance', sector: 'Tecnologia financeira', initials: 'MF', accent: 'green' },
-  { id: 'orbe-systems', name: 'Orbe Systems', sector: 'Sistemas empresariais', initials: 'OS', accent: 'violet' },
-  { id: 'vertice-digital', name: 'Vértice Digital', sector: 'Experiências digitais', initials: 'VD', accent: 'blue' },
-  { id: 'lumina-health', name: 'Lumina Health', sector: 'Tecnologia para saúde', initials: 'LH', accent: 'green' },
-  { id: 'norte-commerce', name: 'Norte Commerce', sector: 'Comércio e plataformas', initials: 'NC', accent: 'neutral' },
-  { id: 'prisma-data', name: 'Prisma Data', sector: 'Dados e inteligência', initials: 'PD', accent: 'violet' },
+  { id: 'nexo-labs', name: 'Accenture', sector: 'Tecnologia e consultoria' },
+  { id: 'atlas-cloud', name: 'Avanade', sector: 'Tecnologia e consultoria' },
+  { id: 'mira-finance', name: 'Bradesco', sector: 'Serviços financeiros' },
+  { id: 'orbe-systems', name: 'BTG Pactual', sector: 'Serviços financeiros' },
+  { id: 'vertice-digital', name: 'Capgemini', sector: 'Tecnologia e consultoria' },
+  { id: 'lumina-health', name: 'Compass UOL', sector: 'Tecnologia e serviços digitais' },
+  { id: 'norte-commerce', name: 'IBM', sector: 'Tecnologia' },
+  { id: 'prisma-data', name: 'iFood', sector: 'Tecnologia e serviços' },
 ] as const satisfies readonly CompanyMark[];
-

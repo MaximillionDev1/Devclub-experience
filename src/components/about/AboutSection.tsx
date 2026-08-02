@@ -110,10 +110,9 @@ export function AboutSection() {
 
         <div className="about-content">
           <p data-about-reveal>
-            O DevClub conecta aprendizado Full Stack estruturado, projetos práticos,
-            mentoria, comunidade e preparação profissional para que cada aluno avance
-            com direção — usando tecnologia e inteligência artificial como ferramentas
-            de trabalho, não como atalhos.
+            O DevClub reúne aprendizado prático em tecnologia, projetos, mentoria e
+            comunidade para apoiar a evolução técnica e a preparação de cada aluno para
+            o mercado — com inteligência artificial como ferramenta de trabalho, não atalho.
           </p>
 
           <ol className="about-principles">

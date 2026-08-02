@@ -107,10 +107,11 @@
 
 1. Uma timeline desktop opera em `min-width: 1024px` e `prefers-reduced-motion: no-preference`.
 2. O trigger segue a base editorial, de `top 76%` a `bottom 64%`, com scrub 0,45 e sem pin.
-3. Copy entra por opacity e deslocamento vertical; três linhas ganham escala horizontal e oito marcas aparecem em ordem deliberada.
-4. Retorno do scroll reverte linha e presença das marcas; seleção de empresa permanece independente da timeline.
-5. Tablet, mobile e reduced motion mostram imediatamente o campo completo ou a grade compacta.
-6. Não há marquee, loop, flutuação, rotação, parallax ou cursor magnético.
+3. Copy, horizonte, ticker e detalhe entram por opacity e deslocamento vertical; seleção de empresa permanece independente da timeline.
+4. O movimento contínuo é CSS, linear, restrito a `transform` e completa um ciclo em 76 segundos. Duas sequências de largura idêntica fecham o loop sem salto; a cópia é apenas visual e usa `aria-hidden`.
+5. Hover ou foco pausam o ticker para estabilizar a interação. Abaixo de 1024 px não há autoplay: a sequência real usa scroll horizontal nativo.
+6. Em `prefers-reduced-motion: reduce`, GSAP e animação CSS não são criados, a cópia visual não ocupa o layout e todos os oito nomes permanecem disponíveis.
+7. Não há rotação, parallax, cursor magnético, aceleração ou animação de layout.
 
 ## Tutores
 

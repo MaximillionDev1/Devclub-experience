@@ -14,12 +14,7 @@ export function CompaniesSection() {
       media.add(
         '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
         () => {
-          const marks = gsap.utils.toArray<HTMLElement>('[data-company-mark]');
-          const lines = gsap.utils.toArray<HTMLElement>('[data-company-line]');
-
           gsap.set('[data-companies-reveal]', { autoAlpha: 0, y: 18 });
-          gsap.set(marks, { autoAlpha: 0, y: 12, scale: 0.94 });
-          gsap.set(lines, { scaleX: 0 });
 
           const entrance = gsap.timeline({
             defaults: { ease: 'power1.out' },
@@ -32,10 +27,12 @@ export function CompaniesSection() {
             },
           });
 
-          entrance
-            .to('[data-companies-reveal]', { autoAlpha: 1, y: 0, duration: 0.75, stagger: 0.12 })
-            .to(lines, { scaleX: 1, duration: 1.9, stagger: 0.16, ease: 'none' }, 0.45)
-            .to(marks, { autoAlpha: 1, y: 0, scale: 1, duration: 0.48, stagger: 0.16 }, 0.65);
+          entrance.to('[data-companies-reveal]', {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.75,
+            stagger: 0.14,
+          });
         },
       );
 
@@ -65,53 +62,63 @@ export function CompaniesSection() {
             O próximo passo não é apenas aprender mais. É estar preparado para colaborar.
           </blockquote>
           <p className="companies-clubjobs">
-            O ecossistema de oportunidades e o ClubJobs ajudam a dar contexto ao encontro
-            entre preparo e mercado, sem substituir a trajetória de cada pessoa.
+            O ClubJobs é apresentado como parte do ecossistema de oportunidades do DevClub,
+            aproximando preparo e mercado sem prometer contratação.
           </p>
         </header>
 
-        <div className="companies-field" aria-label="Destinos profissionais conceituais">
-          <div className="companies-field-glow" aria-hidden="true" />
-          <div className="companies-field-line companies-field-line--a" data-company-line aria-hidden="true" />
-          <div className="companies-field-line companies-field-line--b" data-company-line aria-hidden="true" />
-          <div className="companies-field-line companies-field-line--c" data-company-line aria-hidden="true" />
-
-          <div className="companies-field-center" aria-hidden="true" data-companies-reveal>
-            <span>Talento</span>
-            <strong>em movimento</strong>
+        <div
+          className="companies-stage"
+          role="group"
+          aria-label="Empresas presentes no ecossistema institucional do DevClub"
+        >
+          <div className="companies-horizon-label" aria-hidden="true" data-companies-reveal>
+            <span>Preparação</span>
             <i />
+            <span>Contribuição</span>
           </div>
 
-          <div className="companies-marks">
-            {companyMarks.map((company) => (
-              <button
-                key={company.id}
-                type="button"
-                className="company-mark"
-                data-company-mark={company.id}
-                data-company-id={company.id}
-                data-accent={company.accent}
-                data-active={company.id === activeId}
-                aria-pressed={company.id === activeId}
-                aria-controls="company-detail"
-                onClick={() => setActiveId(company.id)}
-                onFocus={() => setActiveId(company.id)}
-                onMouseEnter={() => setActiveId(company.id)}
-              >
-                <span className="company-mark-symbol" aria-hidden="true">
-                  <i />
-                  <strong>{company.initials}</strong>
-                </span>
-                <span className="company-mark-name">{company.name}</span>
-                <span className="company-mark-sector">{company.sector}</span>
-              </button>
-            ))}
+          <div className="companies-ticker-viewport" data-companies-reveal>
+            <div className="companies-ticker-track">
+              <div className="companies-ticker-sequence">
+                {companyMarks.map((company) => (
+                  <button
+                    key={company.id}
+                    type="button"
+                    className="company-ticker-item"
+                    data-active={company.id === activeId}
+                    aria-pressed={company.id === activeId}
+                    aria-controls="company-detail"
+                    onClick={() => setActiveId(company.id)}
+                    onFocus={() => setActiveId(company.id)}
+                    onMouseEnter={() => setActiveId(company.id)}
+                  >
+                    <span>{company.name}</span>
+                    <i aria-hidden="true">→</i>
+                  </button>
+                ))}
+              </div>
+
+              <div className="companies-ticker-sequence" aria-hidden="true">
+                {companyMarks.map((company) => (
+                  <span
+                    key={`ticker-copy-${company.id}`}
+                    className="company-ticker-item company-ticker-item--copy"
+                    data-active={company.id === activeId}
+                  >
+                    <span>{company.name}</span>
+                    <i>→</i>
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div id="company-detail" className="company-detail" data-companies-reveal>
-            <span>Destino conceitual</span>
+          <div id="company-detail" className="company-detail" aria-live="off" data-companies-reveal>
+            <span>Presença institucional</span>
             <strong>{activeCompany.name}</strong>
             <p>{activeCompany.sector}</p>
+            <small>Organização apresentada no ecossistema institucional do DevClub.</small>
           </div>
         </div>
       </div>

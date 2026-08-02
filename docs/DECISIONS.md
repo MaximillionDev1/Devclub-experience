@@ -310,7 +310,7 @@
 
 ## ADR-024 — Empresas como destinos conceituais, não prova social
 
-**Status:** aceita e executada.
+**Status:** supersedida pela ADR-031 quanto à origem dos nomes e pela ADR-032 quanto à composição.
 
 **Contexto:** a consequência profissional da jornada precisava ser comunicada sem logo wall, marquee, parceiros inventados ou promessa de contratação. Marcas totalmente passivas perderiam a oportunidade de contextualizar os diferentes ambientes profissionais.
 
@@ -403,3 +403,33 @@
 **Fora da decisão:** SR-05, SR-06, SR-07, SR-09, SR-10, Hero, tipografia, copy, composição, âncoras e sistemas internos.
 
 **Arquivos relacionados:** `src/index.css`, `src/components/journey/JourneySection.tsx`, `docs/plans/016-spatial-rhythm.md`.
+
+## ADR-031 — Acurácia institucional para empresas, Quem Somos e ClubJobs
+
+**Status:** aceita e executada; a composição visual de Empresas foi posteriormente substituída pela ADR-032, sem alterar sua decisão factual.
+
+**Contexto:** a experiência utilizava empresas conceituais e uma descrição institucional que podia refletir com mais precisão o posicionamento público atual do DevClub. A atualização precisava aumentar a fidelidade factual sem sugerir parceria, contratação, vaga ou garantia e sem alterar layout, CSS, animações ou a estrutura dos componentes.
+
+**Decisão:** substituir apenas os dados editoriais das oito empresas por nomes apresentados publicamente pelo DevClub na seção “Nossos alunos trabalham em”: Accenture, Avanade, Bradesco, BTG Pactual, Capgemini, Compass UOL, IBM e iFood. A interface passa a descrevê-las como empresas presentes no ecossistema institucional do DevClub, sem atribuir vínculo direto com este projeto. Reformular minimamente “Quem Somos” para explicitar prática, projetos, comunidade, mentoria, tecnologia e preparação para o mercado. Toda menção ao ClubJobs deve apresentá-lo como parte do ecossistema de oportunidades do DevClub, sem promessa de emprego.
+
+Os identificadores internos, acentos, geometrias e comportamento visual do campo de empresas permanecem inalterados para preservar a implementação aprovada. Setores e iniciais são classificações editoriais locais, não identidades oficiais de marca.
+
+**Trade-offs:** logos oficiais não são reproduzidos e os setores permanecem descrições amplas. Em troca, a narrativa ganha alinhamento factual, evita inferir relações comerciais e preserva integralmente a interface.
+
+**Fontes públicas:** `https://devclub.com.br/`, `https://devclub.com.br/sobre` e `https://vagas.devclub.com.br/`.
+
+**Arquivos relacionados:** `src/components/about/AboutSection.tsx`, `src/components/companies/CompaniesSection.tsx`, `src/components/companies/company-data.ts`, `src/components/formations/formation-data.ts`, `docs/CONTENT-SOURCES.md`, `README.md`.
+
+## ADR-032 — Empresas como horizonte editorial tipográfico
+
+**Status:** aceita e executada.
+
+**Contexto:** o campo radial de Empresas era funcional e acessível, mas repetia a gramática orbital já protagonizada por Formações. A seção precisava comunicar destinos profissionais em movimento sem assumir aparência de logo cloud, parede de clientes, patrocinadores ou ticker publicitário.
+
+**Decisão:** remover núcleo, círculos, linhas radiais, símbolos e posicionamento orbital. Desktop passa a usar um ticker editorial CSS linear de 76 segundos, com nomes em DOM, espaçamento amplo, setas discretas e um detalhe compartilhado controlado por `activeId`. A sequência primária contém os oito botões reais; a segunda é uma cópia visual `aria-hidden`, sem controles, usada somente para continuidade geométrica do loop. Hover e foco pausam o movimento. Mobile e reduced motion removem autoplay e cópia visual, preservando os oito botões em scroll horizontal nativo.
+
+GSAP permanece apenas no reveal por scroll já existente. A referência externa de marquee não foi copiada nem integrada. Nenhum logo oficial, asset remoto, identidade de marca, dependência ou nova biblioteca foi usado. Lista, setores, copy, ClubJobs e disclaimers institucionais permanecem inalterados.
+
+**Trade-offs:** a duplicação visual aumenta modestamente a quantidade de nós de texto no desktop, mas não duplica interação ou anúncios e evita dependência adicional. Em troca, Empresas ganha linguagem própria, loop contínuo por `transform`, mobile deliberado e menor CSS emitido após a remoção dos seletores radiais.
+
+**Arquivos relacionados:** `src/components/companies/CompaniesSection.tsx`, `src/components/companies/company-data.ts`, `src/index.css`, `docs/ARCHITECTURE.md`, `docs/ANIMATIONS.md`, `docs/plans/020-companies-editorial-ticker.md`.
