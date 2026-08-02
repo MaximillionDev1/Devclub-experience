@@ -14,10 +14,6 @@ Projeto independente desenvolvido por **Matheus Vinicius Rodrigues da Silva** pa
 
 </div>
 
-> [!IMPORTANT]
-> **Configuração pública antes da publicação**<br>
-> Deploy público: pendente da etapa final de publicação.
-
 ## Preview
 
 ![Demonstração da experiência completa do DevClub Experience](docs/images/devclub-experience-demo.gif)
@@ -26,7 +22,7 @@ Projeto independente desenvolvido por **Matheus Vinicius Rodrigues da Silva** pa
 
 ## Projeto online
 
-- **Deploy público:** pendente da etapa final de publicação.
+- **Deploy:** [devclub-experience-five.vercel.app](https://devclub-experience-five.vercel.app/)
 - **Código-fonte:** [github.com/MaximillionDev1/Devclub-experience](https://github.com/MaximillionDev1/Devclub-experience)
 
 ## Sobre o desafio
@@ -231,7 +227,7 @@ As decisões não foram aceitas automaticamente. Variações e integrações for
 - substituir histórias de alunos e perfis de tutores conceituais por dados institucionais verificados;
 - adicionar testes automatizados para interações e regressões críticas;
 - modularizar o stylesheet global se o projeto crescer além desta landing;
-- capturar e documentar métricas de performance no deploy final.
+- capturar e documentar métricas de performance no ambiente de produção.
 
 ## Autor
 

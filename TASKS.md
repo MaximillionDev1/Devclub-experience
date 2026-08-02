@@ -131,8 +131,10 @@
 - [ ] Documentação.
 - [x] README público definitivo.
 - [x] Repositório público e URL de clone configurados no README.
-- [x] Caminhos públicos das capturas atualizados de PNG para WebP; GIF preservado.
-- [ ] Deploy.
+- [x] Caminhos públicos das capturas confirmados nos formatos existentes; GIF preservado.
+- [x] Previews públicos do README concluídos com GIF, Hero desktop e overview editorial.
+- [x] Deploy de produção publicado em `https://devclub-experience-five.vercel.app/`.
+- [ ] QA final de produção: Lighthouse, reduced motion ativo, zoom de 200%/400% e perfil em dispositivo real.
 - [ ] Apresentação.
 - [ ] E-mail de entrega.
 
@@ -145,4 +147,4 @@
 - [ ] Hero/fallback mobile.
 - [ ] CTA final.
 - [x] GIF curto da experiência completa integrado ao README.
-- [ ] Substituir `docs/images/experience-overview.webp`: o arquivo atual possui 0 bytes e não renderiza.
+- [x] Overview editorial válido integrado ao README em `docs/images/experience-overview.png`.
