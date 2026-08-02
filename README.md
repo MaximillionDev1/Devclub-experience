@@ -39,7 +39,7 @@ Em vez de tratar os requisitos como blocos independentes, este projeto os organi
 
 Um notebook comum funciona como porta de entrada para algo maior. O visitante ocupa o papel de protagonista; a mesa representa sua realidade, o cursor representa decisão e a luz acompanha crescimento. A frase **“Uma decisão muda tudo”** abre uma narrativa em que o scroll deixa de ser apenas navegação e passa a representar participação, conduzindo o visitante de observador a construtor.
 
-![Hero cinematográfica do DevClub Experience em desktop](docs/images/hero-desktop-1440.webp)
+![Hero cinematográfica do DevClub Experience em desktop](docs/images/hero-desktop-1440.png)
 
 > Hero cinematográfica construída como porta de entrada da experiência.
 
@@ -57,7 +57,7 @@ As referências foram usadas como filosofias de design, não como layouts a copi
 8. **Tutores:** apresenta mentoria como conversa, revisão e direção, não como entrega de respostas prontas.
 9. **CTA final:** devolve a decisão ao visitante e encerra a experiência com uma passagem luminosa.
 
-![Visão geral da experiência editorial do DevClub Experience](docs/images/experience-overview.webp)
+![Visão geral da experiência editorial do DevClub Experience](docs/images/experience-overview.png)
 
 > Visão geral da experiência editorial após a Hero.
 
