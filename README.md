@@ -57,7 +57,7 @@ As referências foram usadas como filosofias de design, não como layouts a copi
 8. **Tutores:** apresenta mentoria como conversa, revisão e direção, não como entrega de respostas prontas.
 9. **CTA final:** devolve a decisão ao visitante e encerra a experiência com uma passagem luminosa.
 
-![Visão geral da experiência editorial do DevClub Experience](docs/images/experience-overview.webp)
+![Visão geral da experiência editorial do DevClub Experience](docs/images/experience-overview.png)
 
 > Visão geral da experiência editorial após a Hero.
 
