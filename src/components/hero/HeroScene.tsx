@@ -17,17 +17,31 @@ export function HeroScene() {
   useEffect(() => {
     const loadTimer = window.setTimeout(() => setLoadProgressivePlates(true), 320);
     let refreshFrame = 0;
+    let refreshTimer = 0;
 
     const refreshHero = () => {
       window.cancelAnimationFrame(refreshFrame);
-      refreshFrame = window.requestAnimationFrame(() => ScrollTrigger.refresh());
+      window.clearTimeout(refreshTimer);
+      refreshFrame = window.requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+        refreshTimer = window.setTimeout(() => {
+          gsap.matchMediaRefresh();
+          ScrollTrigger.refresh();
+        }, 180);
+      });
     };
 
+    const viewportObserver = new ResizeObserver(refreshHero);
+    viewportObserver.observe(document.documentElement);
     window.addEventListener('resize', refreshHero);
+    window.addEventListener('orientationchange', refreshHero);
 
     return () => {
       window.clearTimeout(loadTimer);
+      window.clearTimeout(refreshTimer);
+      viewportObserver.disconnect();
       window.removeEventListener('resize', refreshHero);
+      window.removeEventListener('orientationchange', refreshHero);
       window.cancelAnimationFrame(refreshFrame);
     };
   }, []);

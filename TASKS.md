@@ -124,17 +124,19 @@
 
 ## Sprint 6 — Entrega
 
-- [ ] Acessibilidade.
-- [ ] Responsividade.
+- [x] Acessibilidade — ARIA/contraste corrigidos; Lighthouse do build atualizado em 100 mobile/desktop.
+- [x] Responsividade — matriz e rotações repetidas sem overflow horizontal.
 - [ ] Performance.
-- [ ] Auditoria técnica.
-- [ ] Documentação.
+- [x] Auditoria técnica — MS-06 concluída no build de produção local.
+- [x] Documentação da estabilização MS-06.
 - [x] README público definitivo.
 - [x] Repositório público e URL de clone configurados no README.
 - [x] Caminhos públicos das capturas confirmados nos formatos existentes; GIF preservado.
 - [x] Previews públicos do README concluídos com GIF, Hero desktop e overview editorial.
 - [x] Deploy de produção publicado em `https://devclub-experience-five.vercel.app/`.
-- [ ] QA final de produção: Lighthouse, reduced motion ativo, zoom de 200%/400% e perfil em dispositivo real.
+- [x] Lighthouse pós-correção executado no build de produção local.
+- [x] Reduced motion ativo validado em 1440×900, 1024×768, 390×844 e 844×390.
+- [ ] QA final: zoom de 200%/400%, perfil em dispositivo real e nova aferição no deploy atualizado.
 - [ ] Apresentação.
 - [ ] E-mail de entrega.
 

@@ -109,7 +109,7 @@ export function JourneySection() {
                     data-story-visual
                     className={`absolute inset-x-10 ${index === 0 ? '' : 'invisible'}`}
                   >
-                    <p className="font-mono text-xs tracking-[0.25em] text-white/40">
+                    <p className="font-mono text-xs tracking-[0.25em] text-white/60">
                       ETAPA {step.number}
                     </p>
                     <p className="mt-4 text-[clamp(2.25rem,3.6vw,3.25rem)] leading-none font-medium tracking-[-0.05em] text-white/90">

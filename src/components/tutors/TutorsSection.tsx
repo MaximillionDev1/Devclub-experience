@@ -82,7 +82,7 @@ export function TutorsSection() {
           </article>
         </div>
 
-        <div className="tutors-conversation" aria-label="Selecionar perfil de tutor">
+        <div className="tutors-conversation">
           <div className="tutors-conversation-line" data-tutors-line aria-hidden="true" />
           <p data-tutors-reveal>
             <span>05 vozes</span>

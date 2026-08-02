@@ -433,3 +433,17 @@ GSAP permanece apenas no reveal por scroll já existente. A referência externa 
 **Trade-offs:** a duplicação visual aumenta modestamente a quantidade de nós de texto no desktop, mas não duplica interação ou anúncios e evita dependência adicional. Em troca, Empresas ganha linguagem própria, loop contínuo por `transform`, mobile deliberado e menor CSS emitido após a remoção dos seletores radiais.
 
 **Arquivos relacionados:** `src/components/companies/CompaniesSection.tsx`, `src/components/companies/company-data.ts`, `src/index.css`, `docs/ARCHITECTURE.md`, `docs/ANIMATIONS.md`, `docs/plans/020-companies-editorial-ticker.md`.
+
+## ADR-033 — Geometria fluida do pin após resize e orientation change
+
+**Status:** aceita e executada.
+
+**Contexto:** o QA de produção reproduziu overflow horizontal ao passar de 844×390 para 390×844 sem reload. A trilha mobile de Formações recalculava para a largura portrait e mantinha seu overflow interno; a largura excedente vinha do `pin-spacer` e da Hero, que preservavam os 829 px inline medidos antes da rotação.
+
+**Decisão:** manter o único pin e seu comportamento narrativo, mas observar mudanças reais de largura no `documentElement`, executar refresh imediato e reavaliar os contextos `gsap.matchMedia` após 180 ms de estabilização. Como proteção determinística contra corridas de medição, o único `pin-spacer` e sua Hero mantêm largura/max-width de 100% mesmo quando o ScrollTrigger conserva momentaneamente uma largura inline antiga.
+
+**Trade-offs:** a estabilização adiciona um `ResizeObserver`, um refresh tardio e duas regras CSS com `!important` restritas ao único pin. Em troca, não esconde overflow, não altera trilhas horizontais, não usa estado React por frame, evita triggers duplicados e mantém a Hero responsiva durante rotações repetidas.
+
+**Fora da decisão:** duração, scrub, pin spacing vertical, plates, Story Scroll, copy, layout institucional, bundle e render blocking.
+
+**Arquivos relacionados:** `src/components/hero/HeroScene.tsx`, `src/index.css`, `docs/plans/021-production-qa-stabilization.md`.

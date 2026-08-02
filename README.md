@@ -63,7 +63,7 @@ As referências foram usadas como filosofias de design, não como layouts a copi
 - narrativa GSAP orientada por scroll, reversível e sem autoplay narrativo;
 - conteúdo essencial, terminal e interface preservados no DOM semântico;
 - composição mobile/fallback independente quando o recorte cinematográfico seria frágil;
-- estratégia de reduced motion com estados finais independentes de scrub; implementação estrutural disponível, com validação visual ativa ainda no checklist final de QA;
+- estratégia de reduced motion com estados finais independentes de scrub, validada ativamente em quatro viewports no build de produção;
 - entrega responsiva de imagens em AVIF e WebP, com quatro larguras por plate;
 - scroll nativo e um único pin, restrito à Hero;
 - dados institucionais tipados e separados dos componentes;
@@ -199,15 +199,15 @@ npm run build
 - anchors da navegação e retorno ao topo;
 - interação por teclado nos sistemas institucionais;
 - resize, mudança de orientação e refresh intermediário;
+- reduced motion ativo em 1440×900, 1024×768, 390×844 e 844×390;
 - ausência de overflow horizontal da página;
 - console da aplicação sem erro conhecido nos cenários auditados.
 
 ### QA final pendente
 
-- validação visual com `prefers-reduced-motion: reduce` efetivamente ativo;
 - reflow e legibilidade com zoom de 200% e 400%;
 - perfil de performance em dispositivo real;
-- Lighthouse final no ambiente publicado.
+- Lighthouse final no deploy atualizado.
 
 ## Processo criativo e uso de IA
 
@@ -217,7 +217,7 @@ As decisões não foram aceitas automaticamente. Variações e integrações for
 
 ## Limitações conhecidas
 
-- QA visual com reduced motion ativo e zoom ampliado ainda pendente;
+- QA de reflow e legibilidade com zoom ampliado ainda pendente;
 - Core Web Vitals em produção e perfil em dispositivo real ainda não medidos;
 - histórias de alunos e perfis de tutores ainda usam conteúdo conceitual que deve ser substituído por dados verificados em uma aplicação oficial;
 - embora o CTA use um destino verificado, este projeto permanece independente e não oficial.
