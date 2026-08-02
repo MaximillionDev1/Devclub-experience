@@ -21,13 +21,9 @@ Projeto independente desenvolvido por **Matheus Vinicius Rodrigues da Silva** pa
 
 ## Preview
 
-As capturas públicas ainda integram o checklist final de entrega. Os destinos reservados são:
+![Demonstração da experiência completa do DevClub Experience](docs/images/devclub-experience-demo.gif)
 
-- `docs/images/hero-desktop.webp` — Hero em 1440×900;
-- `docs/images/experience-overview.webp` — visão institucional da experiência;
-- `docs/images/devclub-experience-demo.gif` — demonstração curta opcional.
-
-Nenhum desses caminhos é apresentado como mídia disponível até que a captura seja produzida, otimizada e aprovada.
+> Demonstração resumida da experiência narrativa da landing.
 
 ## Projeto online
 
@@ -44,6 +40,10 @@ Em vez de tratar os requisitos como blocos independentes, este projeto os organi
 
 Um notebook comum funciona como porta de entrada para algo maior. O visitante ocupa o papel de protagonista; a mesa representa sua realidade, o cursor representa decisão e a luz acompanha crescimento. A frase **“Uma decisão muda tudo”** abre uma narrativa em que o scroll deixa de ser apenas navegação e passa a representar participação, conduzindo o visitante de observador a construtor.
 
+![Hero cinematográfica do DevClub Experience em desktop](docs/images/hero-desktop-1440.png)
+
+> Hero cinematográfica construída como porta de entrada da experiência.
+
 As referências foram usadas como filosofias de design, não como layouts a copiar: contenção e clareza da Apple, precisão de produto associada a Vercel e Linear, sensação de travessia de *Interstellar* e refinamento de transições do Framer. Não existe vínculo, endosso ou reprodução direta dessas marcas e obras.
 
 ## Experiência
@@ -57,6 +57,10 @@ As referências foram usadas como filosofias de design, não como layouts a copi
 7. **Empresas:** apresenta empresas presentes no ecossistema institucional público do DevClub, sem sugerir contratação ou parceria com este projeto.
 8. **Tutores:** apresenta mentoria como conversa, revisão e direção, não como entrega de respostas prontas.
 9. **CTA final:** devolve a decisão ao visitante e encerra a experiência com uma passagem luminosa.
+
+![Visão geral da experiência editorial do DevClub Experience](docs/images/experience-overview.png)
+
+> Visão geral da experiência editorial após a Hero.
 
 ## Principais diferenciais
 
