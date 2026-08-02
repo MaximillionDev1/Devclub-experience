@@ -16,8 +16,7 @@ Projeto independente desenvolvido por **Matheus Vinicius Rodrigues da Silva** pa
 
 > [!IMPORTANT]
 > **Configuração pública antes da publicação**<br>
-> Deploy público: pendente da etapa final de publicação.<br>
-> Repositório público: pendente; o único token de configuração está no comando de clone e deve ser substituído antes de publicar o README.
+> Deploy público: pendente da etapa final de publicação.
 
 ## Preview
 
@@ -28,7 +27,7 @@ Projeto independente desenvolvido por **Matheus Vinicius Rodrigues da Silva** pa
 ## Projeto online
 
 - **Deploy público:** pendente da etapa final de publicação.
-- **Código-fonte:** o remote Git ainda não está configurado neste workspace; a URL deve ser adicionada antes da publicação.
+- **Código-fonte:** [github.com/MaximillionDev1/Devclub-experience](https://github.com/MaximillionDev1/Devclub-experience)
 
 ## Sobre o desafio
 
@@ -40,7 +39,7 @@ Em vez de tratar os requisitos como blocos independentes, este projeto os organi
 
 Um notebook comum funciona como porta de entrada para algo maior. O visitante ocupa o papel de protagonista; a mesa representa sua realidade, o cursor representa decisão e a luz acompanha crescimento. A frase **“Uma decisão muda tudo”** abre uma narrativa em que o scroll deixa de ser apenas navegação e passa a representar participação, conduzindo o visitante de observador a construtor.
 
-![Hero cinematográfica do DevClub Experience em desktop](docs/images/hero-desktop-1440.png)
+![Hero cinematográfica do DevClub Experience em desktop](docs/images/hero-desktop-1440.webp)
 
 > Hero cinematográfica construída como porta de entrada da experiência.
 
@@ -58,7 +57,7 @@ As referências foram usadas como filosofias de design, não como layouts a copi
 8. **Tutores:** apresenta mentoria como conversa, revisão e direção, não como entrega de respostas prontas.
 9. **CTA final:** devolve a decisão ao visitante e encerra a experiência com uma passagem luminosa.
 
-![Visão geral da experiência editorial do DevClub Experience](docs/images/experience-overview.png)
+![Visão geral da experiência editorial do DevClub Experience](docs/images/experience-overview.webp)
 
 > Visão geral da experiência editorial após a Hero.
 
@@ -169,13 +168,11 @@ O CTA de matrícula usa o destino oficial de WhatsApp fornecido e verificado a p
 O repositório possui `package-lock.json`; para uma instalação reproduzível, use `npm ci`.
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd devclub-experience
+git clone https://github.com/MaximillionDev1/Devclub-experience.git
+cd Devclub-experience
 npm ci
 npm run dev
 ```
-
-Antes de publicar este README, substitua o token do comando de clone pela URL real configurada no remote Git.
 
 Para executar os gates técnicos:
 

@@ -130,16 +130,19 @@
 - [ ] Auditoria técnica.
 - [ ] Documentação.
 - [x] README público definitivo.
+- [x] Repositório público e URL de clone configurados no README.
+- [x] Caminhos públicos das capturas atualizados de PNG para WebP; GIF preservado.
 - [ ] Deploy.
 - [ ] Apresentação.
 - [ ] E-mail de entrega.
 
-### Capturas públicas pendentes
+### Capturas públicas
 
-- [ ] Hero desktop em 1440×900.
+- [x] Hero desktop em 1440×900 para o README.
 - [ ] Ecossistema de Formação Full Stack.
 - [ ] Uma seção institucional em composição split.
 - [ ] Carrossel de histórias de alunos.
 - [ ] Hero/fallback mobile.
 - [ ] CTA final.
-- [ ] GIF ou vídeo curto da experiência completa, otimizado para apresentação pública.
+- [x] GIF curto da experiência completa integrado ao README.
+- [ ] Substituir `docs/images/experience-overview.webp`: o arquivo atual possui 0 bytes e não renderiza.
